@@ -1,0 +1,516 @@
+{
+  "version": "2026.04.10",
+  "lastUpdated": "2026-04-10",
+  "updateHistory": [
+    {
+      "date": "2026-04-10",
+      "description": "初版作成"
+    },
+    {
+      "date": "2025-07-01",
+      "description": "建築基準法12条点検改正対応（特定建築物調査・建築設備検査の重複解消、防火設備検査の対象変更）"
+    }
+  ],
+  "lawUpdates": [
+    {
+      "date": "2025-07-01",
+      "law": "建築基準法",
+      "title": "定期報告制度（12条点検）の改正",
+      "description": "特定建築物調査と建築設備検査の重複箇所整理。常時閉鎖式防火扉の検査が防火設備検査に移行。非常用照明の検査合理化。",
+      "status": "施行済"
+    },
+    {
+      "date": "2025-04-01",
+      "law": "消防法",
+      "title": "消防用設備等点検の電子報告対応拡大",
+      "description": "電子申請による点検報告の対象自治体が拡大。",
+      "status": "施行済"
+    }
+  ],
+  "prefectureStandards": {
+    "hokkaido": {
+      "name": "北海道",
+      "authority": "北海道（札幌市は独自基準）",
+      "note": "北海道の基準を適用。札幌市内の建物は札幌市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "tokyo": {
+      "name": "東京都",
+      "authority": "東京都都市整備局",
+      "note": "東京都建築安全条例に基づく基準を適用。特別区および市によってさらに細かい基準がある場合があります。",
+      "lastUpdated": "2025-07-01",
+      "specificBuilding": {
+        "office": { 
+          "minFloors": 5, 
+          "minArea": 2000, 
+          "minSpecificArea": 1000, 
+          "requiresUpperFloorArea": true, 
+          "upperFloorAreaMin": 100,
+          "note": "5階建以上かつ延床2,000㎡超で、3階以上の事務所部分が100㎡超"
+        },
+        "commercial": { 
+          "minFloors": 3, 
+          "minArea": 500, 
+          "minSpecificArea": 100,
+          "note": "3階以上にあり床面積100㎡超、または地階にあり床面積100㎡超"
+        },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300, "orBeds": 20 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "kanagawa": {
+      "name": "神奈川県",
+      "authority": "神奈川県（横浜市・川崎市・相模原市は独自基準）",
+      "note": "神奈川県の基準を適用。横浜市・川崎市・相模原市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000, "minSpecificArea": 500 },
+        "commercial": { "minFloors": 3, "minArea": 500, "minSpecificArea": 100 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "saitama": {
+      "name": "埼玉県",
+      "authority": "埼玉県（さいたま市は独自基準）",
+      "note": "埼玉県の基準を適用。さいたま市内の建物はさいたま市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "chiba": {
+      "name": "千葉県",
+      "authority": "千葉県（千葉市・船橋市・柏市は独自基準）",
+      "note": "千葉県の基準を適用。千葉市・船橋市・柏市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "osaka": {
+      "name": "大阪府",
+      "authority": "大阪府（大阪市・堺市・東大阪市等は独自基準）",
+      "note": "大阪府の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { 
+          "minFloors": 3, 
+          "minArea": 200, 
+          "minSpecificArea": 100,
+          "note": "3階以上に事務所100㎡超かつ延床200㎡以上"
+        },
+        "commercial": { "minFloors": 3, "minArea": 200, "minSpecificArea": 100 },
+        "hotel": { "minFloors": 3, "minArea": 200 },
+        "hospital": { "minFloors": 3, "minArea": 200 },
+        "welfare": { "minFloors": 2, "minArea": 200 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 200 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "aichi": {
+      "name": "愛知県",
+      "authority": "愛知県（名古屋市は独自基準）",
+      "note": "愛知県の基準を適用。名古屋市内の建物は名古屋市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "kyoto": {
+      "name": "京都府",
+      "authority": "京都府（京都市は独自基準）",
+      "note": "京都府の基準を適用。京都市内の建物は京都市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "hyogo": {
+      "name": "兵庫県",
+      "authority": "兵庫県（神戸市・姫路市・尼崎市・西宮市は独自基準）",
+      "note": "兵庫県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "hiroshima": {
+      "name": "広島県",
+      "authority": "広島県（広島市・福山市・呉市は独自基準）",
+      "note": "広島県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "fukuoka": {
+      "name": "福岡県",
+      "authority": "福岡県（福岡市・北九州市・久留米市は独自基準）",
+      "note": "福岡県の基準を適用。福岡市・北九州市・久留米市内の建物は各市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "niigata": {
+      "name": "新潟県",
+      "authority": "新潟県（新潟市は独自基準）",
+      "note": "新潟県の基準を適用。新潟市内の建物は新潟市の基準を確認してください。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 1000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    },
+    "default": {
+      "name": "国の基準（政令）",
+      "authority": "国土交通省",
+      "note": "国が定める基準（建築基準法施行令）を適用。各自治体で追加の対象建築物が指定されている場合があります。詳細は所轄の特定行政庁にお問い合わせください。",
+      "lastUpdated": "2025-07-01",
+      "specificBuilding": {
+        "office": { "minFloors": 5, "minArea": 2000 },
+        "commercial": { "minFloors": 3, "minArea": 500 },
+        "hotel": { "minFloors": 3, "minArea": 300 },
+        "hospital": { "minFloors": 3, "minArea": 300 },
+        "welfare": { "minFloors": 2, "minArea": 300 },
+        "apartment": { "minFloors": 5, "minArea": 1000 },
+        "theater": { "minFloors": 3, "minArea": 200 },
+        "restaurant": { "minFloors": 3, "minArea": 300 },
+        "school": { "minArea": 8000 }
+      }
+    }
+  },
+  "inspectionTypes": {
+    "building": [
+      {
+        "id": "b1",
+        "name": "特定建築物定期調査",
+        "law": "建築基準法第12条",
+        "cycle": "3年に1回",
+        "cycleType": "triannual",
+        "reportTo": "特定行政庁",
+        "targetType": "specificBuilding",
+        "details": "建物の敷地・外部・内部の状況、防火・避難関係の調査。一級建築士等の有資格者が実施。",
+        "updated": "2025年7月改正",
+        "isLocal": true
+      },
+      {
+        "id": "b2",
+        "name": "建築設備定期検査",
+        "law": "建築基準法第12条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "特定行政庁",
+        "requiredEquipment": ["smokeExhaust", "aircon", "emergencyLight"],
+        "details": "換気設備、排煙設備、非常用の照明装置、給排水設備の検査。",
+        "updated": "2025年7月改正"
+      },
+      {
+        "id": "b3",
+        "name": "防火設備定期検査",
+        "law": "建築基準法第12条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "特定行政庁",
+        "requiredEquipment": ["fireShutter"],
+        "details": "防火扉、防火シャッター、耐火クロススクリーン、ドレンチャーの検査。感知器連動式が対象。",
+        "updated": "2025年7月改正（常時閉鎖式防火扉の検査移行）"
+      },
+      {
+        "id": "b4",
+        "name": "昇降機等定期検査",
+        "law": "建築基準法第12条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "特定行政庁",
+        "requiredEquipment": ["elevator", "escalator"],
+        "details": "エレベーター、エスカレーター、小荷物専用昇降機等の検査。検査済証の掲示義務あり。"
+      }
+    ],
+    "fire": [
+      {
+        "id": "f1",
+        "name": "消防用設備等点検（機器点検）",
+        "law": "消防法第17条の3の3",
+        "cycle": "6ヶ月に1回",
+        "cycleType": "biannual",
+        "reportTo": "所轄消防署",
+        "requiredEquipment": ["fireAlarm", "sprinkler", "indoorHydrant"],
+        "minAreaFallback": 150,
+        "details": "消火器、自動火災報知設備、誘導灯等の外観・機能の点検。"
+      },
+      {
+        "id": "f2",
+        "name": "消防用設備等点検（総合点検）",
+        "law": "消防法第17条の3の3",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "requiredEquipment": ["fireAlarm", "sprinkler", "indoorHydrant"],
+        "minAreaFallback": 150,
+        "details": "消防設備を実際に作動させ、総合的な機能を確認。"
+      },
+      {
+        "id": "f3",
+        "name": "消防用設備等点検報告（特定防火対象物）",
+        "law": "消防法施行規則第31条の6",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "targetUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
+        "details": "病院、ホテル、店舗、飲食店等の特定防火対象物は1年に1回の報告義務。"
+      },
+      {
+        "id": "f4",
+        "name": "消防用設備等点検報告（非特定防火対象物）",
+        "law": "消防法施行規則第31条の6",
+        "cycle": "3年に1回",
+        "cycleType": "triannual",
+        "reportTo": "所轄消防署",
+        "targetUsages": ["office", "apartment", "factory", "school"],
+        "excludeUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
+        "details": "事務所、共同住宅、工場、学校等の非特定防火対象物は3年に1回の報告義務。"
+      },
+      {
+        "id": "f5",
+        "name": "防火対象物定期点検",
+        "law": "消防法第8条の2の2",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "targetUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
+        "minFloors": 3,
+        "orBasement": true,
+        "minOccupants": 30,
+        "details": "防火管理の状況、消防計画の適合状況等を点検。防火対象物点検資格者が実施。収容人員30人以上が対象。"
+      },
+      {
+        "id": "f6",
+        "name": "非常用発電機点検（消防法）",
+        "law": "消防法（非常電源）",
+        "cycle": "6ヶ月に1回（機器）/1年に1回（総合）",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "requiredEquipment": ["generator"],
+        "alsoRequires": ["fireAlarm", "sprinkler"],
+        "details": "消防用設備等の非常電源として設置される自家発電設備の点検。負荷運転試験等。"
+      }
+    ],
+    "electric": [
+      {
+        "id": "e1",
+        "name": "自家用電気工作物 月次点検",
+        "law": "電気事業法第42条",
+        "cycle": "毎月または隔月1回",
+        "cycleType": "monthly",
+        "reportTo": "保安規程に基づく",
+        "requiredEquipment": ["cubicle"],
+        "details": "漏電の有無、機器の異常な温度上昇、異音異臭の確認等。電気主任技術者または外部委託先が実施。"
+      },
+      {
+        "id": "e2",
+        "name": "自家用電気工作物 年次点検",
+        "law": "電気事業法第42条",
+        "cycle": "1年に1回（条件により3年に1回可）",
+        "cycleType": "yearly",
+        "reportTo": "保安規程に基づく",
+        "requiredEquipment": ["cubicle"],
+        "details": "停電作業を伴う精密点検。絶縁抵抗測定、接地抵抗測定、保護継電器試験等。予防的保全策実施時は3年に1回も可。"
+      },
+      {
+        "id": "e3",
+        "name": "非常用発電機点検（電気事業法）",
+        "law": "電気事業法",
+        "cycle": "保安規程による（年1回程度）",
+        "cycleType": "yearly",
+        "reportTo": "保安規程に基づく",
+        "requiredEquipment": ["generator"],
+        "details": "自家発電設備の電気事業法に基づく点検。電気主任技術者による管理。"
+      }
+    ],
+    "water": [
+      {
+        "id": "w1",
+        "name": "簡易専用水道 法定検査",
+        "law": "水道法第34条の2",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "登録検査機関",
+        "requiredEquipment": ["watertank"],
+        "details": "受水槽の有効容量10㎥超の施設が対象。施設・書類・水質の検査。検査を受けない場合100万円以下の罰金。"
+      },
+      {
+        "id": "w2",
+        "name": "貯水槽清掃",
+        "law": "水道法施行規則第55条",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存5年",
+        "requiredEquipment": ["watertank"],
+        "details": "受水槽・高置水槽の清掃。建築物飲料水貯水槽清掃業者（都道府県知事登録）に委託。"
+      },
+      {
+        "id": "w3",
+        "name": "特定建築物 空気環境測定",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "2ヶ月に1回",
+        "cycleType": "bimonthly",
+        "reportTo": "保健所届出",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "浮遊粉じん、CO、CO2、温度、湿度、気流の測定。建築物環境衛生管理技術者（ビル管理士）が管理。"
+      },
+      {
+        "id": "w4",
+        "name": "特定建築物 飲料水水質検査",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "6ヶ月に1回（16項目）/年1回（全項目）",
+        "cycleType": "biannual",
+        "reportTo": "保健所届出",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "requiredEquipment": ["watertank"],
+        "details": "飲料水の水質検査。残留塩素は毎日測定が必要。"
+      },
+      {
+        "id": "w5",
+        "name": "浄化槽保守点検",
+        "law": "浄化槽法",
+        "cycle": "4ヶ月に1回以上",
+        "cycleType": "quarterly",
+        "reportTo": "都道府県知事",
+        "requiredEquipment": ["septic"],
+        "details": "処理方式・人槽により頻度が異なる（合併処理21人以上は2週間に1回等）。浄化槽管理士が実施。"
+      },
+      {
+        "id": "w6",
+        "name": "浄化槽清掃",
+        "law": "浄化槽法",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "市町村長許可業者",
+        "requiredEquipment": ["septic"],
+        "details": "許可業者による汚泥の引き抜き・清掃。全ばっ気方式は6ヶ月に1回以上。"
+      },
+      {
+        "id": "w7",
+        "name": "浄化槽法定検査",
+        "law": "浄化槽法第7条・第11条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "指定検査機関",
+        "requiredEquipment": ["septic"],
+        "details": "外観検査、水質検査、書類検査。設置後の7条検査と毎年の11条検査。"
+      },
+      {
+        "id": "w8",
+        "name": "ボイラー性能検査",
+        "law": "労働安全衛生法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "労働基準監督署または登録機関",
+        "requiredEquipment": ["boiler"],
+        "details": "労働基準監督署長または登録性能検査機関による検査。検査証の有効期間更新。小型ボイラーは対象外。"
+      },
+      {
+        "id": "w9",
+        "name": "ボイラー定期自主検査",
+        "law": "労働安全衛生法",
+        "cycle": "1ヶ月に1回",
+        "cycleType": "monthly",
+        "reportTo": "記録保存3年",
+        "requiredEquipment": ["boiler"],
+        "details": "事業者による自主検査。ボイラー及び付属設備の損傷・異常の有無、安全弁等の機能等。"
+      }
+    ]
+  }
+}
