@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>建物管理台帳 - 法定点検判定システム v3</title>
+  <title>建物管理台帳 - 法定点検判定システム v4</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -154,6 +154,34 @@
     .detected-location.show { display: flex; align-items: center; gap: 0.5rem; }
 
     .checkbox-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+
+    .equipment-category {
+      grid-column: 1 / -1;
+      margin-bottom: 0.75rem;
+    }
+
+    .equipment-category-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 0.5rem 0.75rem;
+      background: linear-gradient(90deg, rgba(26, 54, 93, 0.1) 0%, transparent 100%);
+      border-left: 3px solid var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .equipment-category-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .equipment-category-items {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .checkbox-item {
       display: flex;
@@ -423,10 +451,21 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="buildingAge">築年数</label>
-              <input type="number" id="buildingAge" placeholder="年" min="0">
+            <div class="inline-group">
+              <div class="form-group">
+                <label for="completionDate">竣工日</label>
+                <input type="date" id="completionDate">
+                <p class="help-text">建物の新築完了日</p>
+              </div>
+              <div class="form-group">
+                <label for="renovationDate">大規模改修日</label>
+                <input type="date" id="renovationDate">
+                <p class="help-text">大規模リノベーション完了日（ある場合）</p>
+              </div>
             </div>
+            <p class="help-text" style="margin-top: -0.5rem; margin-bottom: 1rem;">
+              ※石綿関連の点検基準日は、大規模改修日がある場合はそちらを優先します。改修内容によっては竣工日が基準となる場合もありますので、詳細は専門家にご確認ください。
+            </p>
 
             <hr class="section-divider">
 
@@ -616,35 +655,56 @@
       factory: '工場・倉庫', school: '学校・教育施設', theater: '劇場・映画館', restaurant: '飲食店'
     };
 
-    // 設備のラベル
-    const equipmentLabels = {
-      elevator: 'エレベーター', 
-      escalator: 'エスカレーター', 
-      cubicle: 'キュービクル（高圧受電）',
-      generator: '非常用発電機', 
-      watertank: '貯水槽（10㎥超）', 
-      septic: '浄化槽',
-      boiler: 'ボイラー', 
-      aircon: '中央空調設備', 
-      sprinkler: 'スプリンクラー',
-      fireAlarm: '自動火災報知設備', 
-      fireShutter: '防火シャッター・防火扉',
-      smokeExhaust: '排煙設備', 
-      emergencyLight: '非常用照明', 
-      indoorHydrant: '屋内消火栓',
-      coolingTower: '冷却塔',
-      airconCommercial: '業務用エアコン（7.5kW以上）',
-      refrigeratorCommercial: '業務用冷凍冷蔵機器',
-      refrigerator: '冷凍設備（高圧ガス）',
-      highPressureGas: '高圧ガス製造設備',
-      lpGas: 'LPガス設備',
-      cityGas: '都市ガス設備',
-      smokeEmitter: 'ばい煙発生施設（ボイラー等）',
-      wastewaterFacility: '特定施設（排水）',
-      mechanicalParking: '機械式駐車場',
-      parkingLot: '路外駐車場（500㎡以上）',
-      asbestosContaining: '石綿含有建材'
+    // 設備のラベル（カテゴリ分け）
+    const equipmentCategories = {
+      '昇降機・搬送設備': {
+        elevator: 'エレベーター', 
+        escalator: 'エスカレーター'
+      },
+      '電気設備': {
+        cubicle: 'キュービクル（高圧受電）',
+        generator: '非常用発電機'
+      },
+      '消防設備': {
+        sprinkler: 'スプリンクラー',
+        fireAlarm: '自動火災報知設備', 
+        fireShutter: '防火シャッター・防火扉',
+        smokeExhaust: '排煙設備', 
+        emergencyLight: '非常用照明', 
+        indoorHydrant: '屋内消火栓'
+      },
+      '給排水・衛生設備': {
+        watertank: '貯水槽（10㎥超）', 
+        septic: '浄化槽',
+        boiler: 'ボイラー'
+      },
+      '空調・冷凍設備': {
+        aircon: '中央空調設備',
+        coolingTower: '冷却塔',
+        airconCommercial: '業務用エアコン（7.5kW以上）',
+        refrigeratorCommercial: '業務用冷凍冷蔵機器',
+        refrigerator: '冷凍設備（高圧ガス対象）'
+      },
+      'ガス設備': {
+        highPressureGas: '高圧ガス製造設備',
+        lpGas: 'LPガス設備',
+        cityGas: '都市ガス設備'
+      },
+      '環境関連施設': {
+        smokeEmitter: 'ばい煙発生施設（ボイラー等）',
+        wastewaterFacility: '特定施設（排水）'
+      },
+      '駐車場設備': {
+        mechanicalParking: '機械式駐車場',
+        parkingLot: '路外駐車場（500㎡以上）'
+      },
+      'その他': {
+        asbestosContaining: '石綿含有建材（吹付け材等）'
+      }
     };
+    
+    // フラットな設備ラベル（後方互換性用）
+    const equipmentLabels = Object.values(equipmentCategories).reduce((acc, cat) => ({ ...acc, ...cat }), {});
 
     // ===========================================
     // 初期化
@@ -830,14 +890,24 @@
     function generateEquipmentCheckboxes() {
       const container = document.getElementById('equipmentCheckboxes');
       let html = '';
-      for (const [value, label] of Object.entries(equipmentLabels)) {
-        html += `
-          <label class="checkbox-item">
-            <input type="checkbox" name="equipment" value="${value}">
-            <span>${label}</span>
-          </label>
-        `;
+      
+      for (const [categoryName, items] of Object.entries(equipmentCategories)) {
+        html += `<div class="equipment-category">
+          <div class="equipment-category-title">${categoryName}</div>
+          <div class="equipment-category-items">`;
+        
+        for (const [value, label] of Object.entries(items)) {
+          html += `
+            <label class="checkbox-item">
+              <input type="checkbox" name="equipment" value="${value}">
+              <span>${label}</span>
+            </label>
+          `;
+        }
+        
+        html += `</div></div>`;
       }
+      
       container.innerHTML = html;
     }
 
@@ -1053,7 +1123,8 @@
         address: document.getElementById('address').value,
         prefecture: document.getElementById('prefecture').value,
         city: document.getElementById('city').value,
-        buildingAge: parseInt(document.getElementById('buildingAge').value) || 0,
+        completionDate: document.getElementById('completionDate').value || null,
+        renovationDate: document.getElementById('renovationDate').value || null,
         usages: Array.from(document.querySelectorAll('input[name="usage"]:checked')).map(cb => cb.value),
         totalArea: parseInt(document.getElementById('totalArea').value) || 0,
         specificArea: parseInt(document.getElementById('specificArea').value) || 0,
@@ -1062,6 +1133,9 @@
         occupants: parseInt(document.getElementById('occupants').value) || 0,
         equipment: Array.from(document.querySelectorAll('input[name="equipment"]:checked')).map(cb => cb.value)
       };
+      
+      // 基準日を計算（大規模改修日があればそちらを優先）
+      data.referenceDate = data.renovationDate || data.completionDate;
 
       if (!data.buildingName || data.usages.length === 0 || !data.totalArea || !data.floors || !data.prefecture) {
         alert('必須項目（建物名称、都道府県、用途、延床面積、階数）を入力してください');
@@ -1192,6 +1266,8 @@
       csv += '所在地,' + window.currentData.address + '\n';
       csv += '都道府県,' + prefectureNames[window.currentData.prefecture] + '\n';
       csv += '延床面積,' + window.currentData.totalArea + '㎡\n';
+      csv += '竣工日,' + (window.currentData.completionDate || '未入力') + '\n';
+      csv += '大規模改修日,' + (window.currentData.renovationDate || 'なし') + '\n';
       csv += '適用基準,' + (window.currentLocalStd ? window.currentLocalStd.name : '国の基準') + '\n';
       csv += 'データバージョン,' + appData.version + '\n';
       csv += '\n';
