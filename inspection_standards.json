@@ -1,7 +1,11 @@
 {
-  "version": "2026.04.10.2",
+  "version": "2026.04.10.3",
   "lastUpdated": "2026-04-10",
   "updateHistory": [
+    {
+      "date": "2026-04-10",
+      "description": "フロン点検の設備選択肢を細分化（7.5kW未満/7.5kW以上50kW未満/50kW以上）。すべての業務用機器で簡易点検が表示されるよう修正"
+    },
     {
       "date": "2026-04-10",
       "description": "追加法令対応：高圧ガス保安法、フロン排出抑制法、大気汚染防止法、水質汚濁防止法、駐車場法、石綿障害予防規則、ガス事業法、液化石油ガス法、ビル管法清掃関係を追加"
@@ -706,28 +710,28 @@
         "cycle": "3ヶ月に1回以上",
         "cycleType": "quarterly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercial", "refrigeratorCommercial"],
-        "details": "業務用エアコン・冷凍冷蔵機器のユーザーによる目視点検。室外機の異音、油にじみ、熱交換器の霜付き等を確認。"
+        "requiredEquipment": ["airconCommercialSmall", "airconCommercialMedium", "airconCommercialLarge", "refrigeratorCommercialSmall", "refrigeratorCommercialLarge"],
+        "details": "すべての業務用エアコン・冷凍冷蔵機器が対象。管理者（ユーザー）による目視点検。室外機の異音、油にじみ、熱交換器の霜付き、腐食等を確認。"
       },
       {
         "id": "ev2",
-        "name": "フロン類 定期点検（7.5kW以上50kW未満）",
+        "name": "フロン類 定期点検（エアコン7.5kW以上50kW未満）",
         "law": "フロン排出抑制法",
         "cycle": "3年に1回以上",
         "cycleType": "triannual",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercial"],
-        "details": "圧縮機の定格出力7.5kW以上50kW未満のエアコンが対象。十分な知見を有する者による点検。"
+        "requiredEquipment": ["airconCommercialMedium"],
+        "details": "圧縮機の定格出力7.5kW以上50kW未満のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
       },
       {
         "id": "ev3",
-        "name": "フロン類 定期点検（50kW以上）",
+        "name": "フロン類 定期点検（エアコン50kW以上）",
         "law": "フロン排出抑制法",
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercial"],
-        "details": "圧縮機の定格出力50kW以上のエアコンが対象。十分な知見を有する者による点検。"
+        "requiredEquipment": ["airconCommercialLarge"],
+        "details": "圧縮機の定格出力50kW以上のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
       },
       {
         "id": "ev4",
@@ -736,8 +740,8 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["refrigeratorCommercial"],
-        "details": "圧縮機の定格出力7.5kW以上の冷凍冷蔵機器が対象。十分な知見を有する者による点検。"
+        "requiredEquipment": ["refrigeratorCommercialLarge"],
+        "details": "圧縮機の定格出力7.5kW以上の冷凍冷蔵機器が対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
       },
       {
         "id": "ev5",
@@ -746,8 +750,8 @@
         "cycle": "年度終了後（年1回）",
         "cycleType": "yearly",
         "reportTo": "主務大臣（環境省・経産省）",
-        "requiredEquipment": ["airconCommercial", "refrigeratorCommercial"],
-        "details": "年間漏えい量1,000t-CO2以上の事業者は報告義務。電子システムでの報告可能。"
+        "requiredEquipment": ["airconCommercialSmall", "airconCommercialMedium", "airconCommercialLarge", "refrigeratorCommercialSmall", "refrigeratorCommercialLarge"],
+        "details": "事業者全体で年間漏えい量1,000t-CO2以上の場合は報告義務。電子システム（フロン類算定漏えい量報告・届出システム）での報告可能。"
       },
       {
         "id": "ev6",
