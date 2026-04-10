@@ -1,7 +1,11 @@
 {
-  "version": "2026.04.10",
+  "version": "2026.04.10.2",
   "lastUpdated": "2026-04-10",
   "updateHistory": [
+    {
+      "date": "2026-04-10",
+      "description": "追加法令対応：高圧ガス保安法、フロン排出抑制法、大気汚染防止法、水質汚濁防止法、駐車場法、石綿障害予防規則、ガス事業法、液化石油ガス法、ビル管法清掃関係を追加"
+    },
     {
       "date": "2026-04-10",
       "description": "初版作成"
@@ -24,6 +28,13 @@
       "law": "消防法",
       "title": "消防用設備等点検の電子報告対応拡大",
       "description": "電子申請による点検報告の対象自治体が拡大。",
+      "status": "施行済"
+    },
+    {
+      "date": "2024-04-01",
+      "law": "フロン排出抑制法",
+      "title": "フロン類算定漏えい量報告の電子化",
+      "description": "算定漏えい量の報告が電子システムで可能に。",
       "status": "施行済"
     }
   ],
@@ -463,6 +474,54 @@
       },
       {
         "id": "w5",
+        "name": "特定建築物 日常清掃",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "毎日",
+        "cycleType": "daily",
+        "reportTo": "記録保存",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "床面、トイレ、洗面所、ゴミ箱等の日常的な清掃。清掃の実施状況を記録。"
+      },
+      {
+        "id": "w6",
+        "name": "特定建築物 大掃除",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "6ヶ月に1回以上",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "建築物内の大掃除を6ヶ月以内ごとに1回、統一的に実施。日常清掃では行き届かない場所を重点的に。"
+      },
+      {
+        "id": "w7",
+        "name": "特定建築物 清掃用機械器具の点検",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "定期（6ヶ月に1回程度）",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "真空掃除機、床磨き機等の清掃用機械・器具の点検・整備。衛生的に保管。"
+      },
+      {
+        "id": "w8",
+        "name": "特定建築物 ねずみ・昆虫等の防除",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "6ヶ月に1回以上調査/必要に応じ防除",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "ねずみ、ゴキブリ等の昆虫の発生場所、生息状況、侵入経路を調査。必要に応じて駆除を実施。"
+      },
+      {
+        "id": "w9",
         "name": "浄化槽保守点検",
         "law": "浄化槽法",
         "cycle": "4ヶ月に1回以上",
@@ -472,7 +531,7 @@
         "details": "処理方式・人槽により頻度が異なる（合併処理21人以上は2週間に1回等）。浄化槽管理士が実施。"
       },
       {
-        "id": "w6",
+        "id": "w10",
         "name": "浄化槽清掃",
         "law": "浄化槽法",
         "cycle": "1年に1回以上",
@@ -482,7 +541,7 @@
         "details": "許可業者による汚泥の引き抜き・清掃。全ばっ気方式は6ヶ月に1回以上。"
       },
       {
-        "id": "w7",
+        "id": "w11",
         "name": "浄化槽法定検査",
         "law": "浄化槽法第7条・第11条",
         "cycle": "1年に1回",
@@ -492,7 +551,7 @@
         "details": "外観検査、水質検査、書類検査。設置後の7条検査と毎年の11条検査。"
       },
       {
-        "id": "w8",
+        "id": "w12",
         "name": "ボイラー性能検査",
         "law": "労働安全衛生法",
         "cycle": "1年に1回",
@@ -502,7 +561,7 @@
         "details": "労働基準監督署長または登録性能検査機関による検査。検査証の有効期間更新。小型ボイラーは対象外。"
       },
       {
-        "id": "w9",
+        "id": "w13",
         "name": "ボイラー定期自主検査",
         "law": "労働安全衛生法",
         "cycle": "1ヶ月に1回",
@@ -510,6 +569,299 @@
         "reportTo": "記録保存3年",
         "requiredEquipment": ["boiler"],
         "details": "事業者による自主検査。ボイラー及び付属設備の損傷・異常の有無、安全弁等の機能等。"
+      },
+      {
+        "id": "w14",
+        "name": "特定建築物 冷却塔・冷却水の清掃",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["coolingTower"],
+        "details": "冷却塔、冷却水の水管、加湿装置の清掃。レジオネラ属菌対策として重要。使用開始時・終了時にも実施。"
+      },
+      {
+        "id": "w15",
+        "name": "特定建築物 冷却塔の汚れ状況点検",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "1ヶ月に1回以上",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["coolingTower"],
+        "details": "使用期間中、冷却塔・冷却水の汚れの状況を1ヶ月以内ごとに1回点検。必要に応じ清掃・換水。"
+      },
+      {
+        "id": "w16",
+        "name": "特定建築物 加湿装置の清掃",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["aircon"],
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "加湿装置の清掃。使用開始時・使用終了時に実施。レジオネラ症やカビの発生防止。"
+      },
+      {
+        "id": "w17",
+        "name": "特定建築物 排水設備の清掃",
+        "law": "ビル管法（建築物衛生法）",
+        "cycle": "6ヶ月に1回以上",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "minArea": 3000,
+        "schoolMinArea": 8000,
+        "details": "排水管、排水ます、阻集器の清掃。悪臭や害虫発生防止のため定期的に実施。"
+      }
+    ],
+    "gas": [
+      {
+        "id": "g1",
+        "name": "高圧ガス製造施設 保安検査",
+        "law": "高圧ガス保安法第35条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "都道府県知事または高圧ガス保安協会",
+        "requiredEquipment": ["highPressureGas"],
+        "details": "第一種製造者の製造施設の位置、構造、設備が技術上の基準に適合しているか検査。"
+      },
+      {
+        "id": "g2",
+        "name": "高圧ガス製造施設 定期自主検査",
+        "law": "高圧ガス保安法第35条の2",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["highPressureGas"],
+        "details": "第一種製造者による自主検査。製造施設の位置、構造、設備の技術基準適合性を確認。"
+      },
+      {
+        "id": "g3",
+        "name": "冷凍設備 保安検査",
+        "law": "高圧ガス保安法",
+        "cycle": "1年に1回（または3年に1回）",
+        "cycleType": "yearly",
+        "reportTo": "都道府県知事または高圧ガス保安協会",
+        "requiredEquipment": ["refrigerator"],
+        "details": "冷凍能力20トン以上（フロンは50トン以上）の冷凍設備が対象。認定事業者は3年に1回。"
+      },
+      {
+        "id": "g4",
+        "name": "冷凍設備 定期自主検査",
+        "law": "高圧ガス保安法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["refrigerator"],
+        "details": "第一種製造者（冷凍）による自主検査。圧縮機、凝縮器、蒸発器等の点検。"
+      },
+      {
+        "id": "g5",
+        "name": "LPガス設備 定期点検・調査",
+        "law": "液化石油ガス法第27条",
+        "cycle": "4年に1回以上",
+        "cycleType": "fouryearly",
+        "reportTo": "LPガス販売事業者",
+        "requiredEquipment": ["lpGas"],
+        "details": "LPガス販売事業者による消費設備の調査。ガス漏れ検査、燃焼器具の確認等。地下室は1年に1回。"
+      },
+      {
+        "id": "g6",
+        "name": "LPガス容器の再検査",
+        "law": "高圧ガス保安法",
+        "cycle": "製造後20年未満：5年/製造後20年以上：2年",
+        "cycleType": "fiveyearly",
+        "reportTo": "容器検査所",
+        "requiredEquipment": ["lpGas"],
+        "details": "LPガス容器（ボンベ）の耐圧検査、外観検査等。検査に合格しないと充填不可。"
+      },
+      {
+        "id": "g7",
+        "name": "都市ガス 消費機器調査",
+        "law": "ガス事業法第159条",
+        "cycle": "4年に1回以上",
+        "cycleType": "fouryearly",
+        "reportTo": "ガス事業者",
+        "requiredEquipment": ["cityGas"],
+        "details": "ガス事業者による消費機器の調査。給排気設備の状況、ガス漏れ検査、不完全燃焼防止措置の確認等。"
+      },
+      {
+        "id": "g8",
+        "name": "都市ガス ガス工作物の検査",
+        "law": "ガス事業法第61条・第62条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "経済産業大臣",
+        "requiredEquipment": ["cityGas"],
+        "details": "特定ガス工作物（大規模なガス設備）の保安検査。一般消費者は対象外。ガス事業者向け規定。"
+      }
+    ],
+    "environment": [
+      {
+        "id": "ev1",
+        "name": "フロン類 簡易点検",
+        "law": "フロン排出抑制法",
+        "cycle": "3ヶ月に1回以上",
+        "cycleType": "quarterly",
+        "reportTo": "記録保存3年",
+        "requiredEquipment": ["airconCommercial", "refrigeratorCommercial"],
+        "details": "業務用エアコン・冷凍冷蔵機器のユーザーによる目視点検。室外機の異音、油にじみ、熱交換器の霜付き等を確認。"
+      },
+      {
+        "id": "ev2",
+        "name": "フロン類 定期点検（7.5kW以上50kW未満）",
+        "law": "フロン排出抑制法",
+        "cycle": "3年に1回以上",
+        "cycleType": "triannual",
+        "reportTo": "記録保存3年",
+        "requiredEquipment": ["airconCommercial"],
+        "details": "圧縮機の定格出力7.5kW以上50kW未満のエアコンが対象。十分な知見を有する者による点検。"
+      },
+      {
+        "id": "ev3",
+        "name": "フロン類 定期点検（50kW以上）",
+        "law": "フロン排出抑制法",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存3年",
+        "requiredEquipment": ["airconCommercial"],
+        "details": "圧縮機の定格出力50kW以上のエアコンが対象。十分な知見を有する者による点検。"
+      },
+      {
+        "id": "ev4",
+        "name": "フロン類 定期点検（冷凍冷蔵7.5kW以上）",
+        "law": "フロン排出抑制法",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存3年",
+        "requiredEquipment": ["refrigeratorCommercial"],
+        "details": "圧縮機の定格出力7.5kW以上の冷凍冷蔵機器が対象。十分な知見を有する者による点検。"
+      },
+      {
+        "id": "ev5",
+        "name": "フロン類算定漏えい量報告",
+        "law": "フロン排出抑制法",
+        "cycle": "年度終了後（年1回）",
+        "cycleType": "yearly",
+        "reportTo": "主務大臣（環境省・経産省）",
+        "requiredEquipment": ["airconCommercial", "refrigeratorCommercial"],
+        "details": "年間漏えい量1,000t-CO2以上の事業者は報告義務。電子システムでの報告可能。"
+      },
+      {
+        "id": "ev6",
+        "name": "ばい煙発生施設 測定",
+        "law": "大気汚染防止法第16条",
+        "cycle": "2ヶ月に1回以上（ばいじん・SOx等）/年2回以上（NOx）",
+        "cycleType": "bimonthly",
+        "reportTo": "都道府県知事",
+        "requiredEquipment": ["smokeEmitter"],
+        "details": "ボイラー、ディーゼル機関等のばい煙発生施設からの排出ガスを測定。硫黄酸化物、窒素酸化物、ばいじん等。"
+      },
+      {
+        "id": "ev7",
+        "name": "ばい煙発生施設 届出",
+        "law": "大気汚染防止法第6条",
+        "cycle": "設置時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "都道府県知事",
+        "requiredEquipment": ["smokeEmitter"],
+        "details": "ばい煙発生施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。"
+      },
+      {
+        "id": "ev8",
+        "name": "特定施設 排水測定",
+        "law": "水質汚濁防止法第14条",
+        "cycle": "排出水：年1回以上/特定地下浸透水：年1回以上",
+        "cycleType": "yearly",
+        "reportTo": "都道府県知事",
+        "requiredEquipment": ["wastewaterFacility"],
+        "details": "特定施設から公共用水域に排出される水の汚染状態を測定。pH、BOD、COD、SS、油分等。"
+      },
+      {
+        "id": "ev9",
+        "name": "特定施設 届出",
+        "law": "水質汚濁防止法第5条",
+        "cycle": "設置時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "都道府県知事",
+        "requiredEquipment": ["wastewaterFacility"],
+        "details": "特定施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。"
+      }
+    ],
+    "parking": [
+      {
+        "id": "pk1",
+        "name": "機械式駐車場 定期検査",
+        "law": "駐車場法・建築基準法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "特定行政庁",
+        "requiredEquipment": ["mechanicalParking"],
+        "details": "機械式駐車装置の安全性に関する定期検査。一級建築士等または昇降機等検査員資格者が実施。"
+      },
+      {
+        "id": "pk2",
+        "name": "機械式駐車場 月例点検",
+        "law": "駐車場法施行令",
+        "cycle": "1ヶ月に1回",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["mechanicalParking"],
+        "details": "管理者または専門業者による点検。駆動装置、安全装置、制御装置等の動作確認。"
+      },
+      {
+        "id": "pk3",
+        "name": "路外駐車場 定期報告",
+        "law": "駐車場法第12条・第13条",
+        "cycle": "届出時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "都道府県知事または市長",
+        "requiredEquipment": ["parkingLot"],
+        "details": "路外駐車場（500㎡以上）の設置届出、管理規程の届出。構造・設備の技術的基準適合。"
+      }
+    ],
+    "asbestos": [
+      {
+        "id": "as1",
+        "name": "石綿含有建材 目視点検",
+        "law": "石綿障害予防規則第10条",
+        "cycle": "作業前・定期（概ね1年に1回）",
+        "cycleType": "yearly",
+        "reportTo": "記録保存（40年間）",
+        "requiredEquipment": ["asbestosContaining"],
+        "details": "石綿含有建材の損傷、劣化、粉じん発散の有無を目視により点検。損傷等があれば補修または除去。"
+      },
+      {
+        "id": "as2",
+        "name": "石綿含有建材 空気中濃度測定",
+        "law": "石綿障害予防規則第36条",
+        "cycle": "6ヶ月に1回",
+        "cycleType": "biannual",
+        "reportTo": "記録保存40年",
+        "requiredEquipment": ["asbestosContaining"],
+        "details": "石綿を取り扱う作業場における空気中の石綿濃度測定。総繊維数濃度法または位相差顕微鏡法。"
+      },
+      {
+        "id": "as3",
+        "name": "建築物 石綿使用状況調査",
+        "law": "大気汚染防止法・石綿障害予防規則",
+        "cycle": "解体・改修工事前",
+        "cycleType": "asneeded",
+        "reportTo": "都道府県知事等",
+        "requiredEquipment": ["asbestosContaining"],
+        "details": "解体・改修工事前の事前調査。一定規模以上の工事は調査結果の報告義務あり。有資格者（建築物石綿含有建材調査者）が実施。"
+      },
+      {
+        "id": "as4",
+        "name": "石綿建材封じ込め・囲い込み 定期点検",
+        "law": "石綿障害予防規則",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": ["asbestosContaining"],
+        "details": "封じ込めまたは囲い込みを行った石綿含有建材の損傷、劣化等の状況を定期点検。異常があれば措置。"
       }
     ]
   }

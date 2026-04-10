@@ -532,7 +532,11 @@
               <button class="tab" data-tab="building">建築基準法</button>
               <button class="tab" data-tab="fire">消防法</button>
               <button class="tab" data-tab="electric">電気事業法</button>
-              <button class="tab" data-tab="water">水道法・他</button>
+              <button class="tab" data-tab="water">水道法・ビル管法</button>
+              <button class="tab" data-tab="gas">ガス関連法</button>
+              <button class="tab" data-tab="environment">環境関連法</button>
+              <button class="tab" data-tab="parking">駐車場法</button>
+              <button class="tab" data-tab="asbestos">石綿関連</button>
             </div>
 
             <div class="summary-grid">
@@ -541,16 +545,16 @@
                 <div class="summary-label">必要点検数</div>
               </div>
               <div class="summary-card">
+                <div class="summary-number" id="dailyCount">0</div>
+                <div class="summary-label">日次点検</div>
+              </div>
+              <div class="summary-card">
                 <div class="summary-number" id="monthlyCount">0</div>
                 <div class="summary-label">月次点検</div>
               </div>
               <div class="summary-card">
                 <div class="summary-number" id="yearlyCount">0</div>
                 <div class="summary-label">年次点検</div>
-              </div>
-              <div class="summary-card">
-                <div class="summary-number" id="triannualCount">0</div>
-                <div class="summary-label">3年毎点検</div>
               </div>
             </div>
 
@@ -570,7 +574,7 @@
 
   <footer>
     <p>※本システムは法定点検の目安を示すものです。実際の点検義務は建物の所在地、用途、規模などにより異なりますので、所轄の行政機関にご確認ください。</p>
-    <p style="margin-top: 0.5rem;">© 2026 建物管理台帳システム v3.0（外部データ連携版）</p>
+    <p style="margin-top: 0.5rem;">© 2026 建物管理台帳システム v4.0（全法令対応版）</p>
   </footer>
 
   <script>
@@ -614,11 +618,32 @@
 
     // 設備のラベル
     const equipmentLabels = {
-      elevator: 'エレベーター', escalator: 'エスカレーター', cubicle: 'キュービクル（高圧受電）',
-      generator: '非常用発電機', watertank: '貯水槽（10㎥超）', septic: '浄化槽',
-      boiler: 'ボイラー', aircon: '中央空調設備', sprinkler: 'スプリンクラー',
-      fireAlarm: '自動火災報知設備', fireShutter: '防火シャッター・防火扉',
-      smokeExhaust: '排煙設備', emergencyLight: '非常用照明', indoorHydrant: '屋内消火栓'
+      elevator: 'エレベーター', 
+      escalator: 'エスカレーター', 
+      cubicle: 'キュービクル（高圧受電）',
+      generator: '非常用発電機', 
+      watertank: '貯水槽（10㎥超）', 
+      septic: '浄化槽',
+      boiler: 'ボイラー', 
+      aircon: '中央空調設備', 
+      sprinkler: 'スプリンクラー',
+      fireAlarm: '自動火災報知設備', 
+      fireShutter: '防火シャッター・防火扉',
+      smokeExhaust: '排煙設備', 
+      emergencyLight: '非常用照明', 
+      indoorHydrant: '屋内消火栓',
+      coolingTower: '冷却塔',
+      airconCommercial: '業務用エアコン（7.5kW以上）',
+      refrigeratorCommercial: '業務用冷凍冷蔵機器',
+      refrigerator: '冷凍設備（高圧ガス）',
+      highPressureGas: '高圧ガス製造設備',
+      lpGas: 'LPガス設備',
+      cityGas: '都市ガス設備',
+      smokeEmitter: 'ばい煙発生施設（ボイラー等）',
+      wastewaterFacility: '特定施設（排水）',
+      mechanicalParking: '機械式駐車場',
+      parkingLot: '路外駐車場（500㎡以上）',
+      asbestosContaining: '石綿含有建材'
     };
 
     // ===========================================
@@ -937,10 +962,10 @@
 
     function determineInspections(data, localStd) {
       if (!appData || !appData.inspectionTypes) {
-        return { building: [], fire: [], electric: [], water: [] };
+        return { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [] };
       }
 
-      const results = { building: [], fire: [], electric: [], water: [] };
+      const results = { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [] };
 
       for (const [category, inspections] of Object.entries(appData.inspectionTypes)) {
         for (const inspection of inspections) {
@@ -1070,28 +1095,32 @@
       }
 
       // カウント
-      let total = 0, monthly = 0, yearly = 0, triannual = 0;
+      let total = 0, daily = 0, monthly = 0, yearly = 0;
       
       for (const category of Object.values(results)) {
         for (const item of category) {
           total++;
-          if (item.cycleType === 'monthly' || item.cycleType === 'bimonthly') monthly++;
-          if (item.cycleType === 'yearly' || item.cycleType === 'biannual' || item.cycleType === 'quarterly') yearly++;
-          if (item.cycleType === 'triannual') triannual++;
+          if (item.cycleType === 'daily') daily++;
+          if (item.cycleType === 'monthly' || item.cycleType === 'bimonthly' || item.cycleType === 'quarterly') monthly++;
+          if (item.cycleType === 'yearly' || item.cycleType === 'biannual' || item.cycleType === 'triannual' || item.cycleType === 'fouryearly' || item.cycleType === 'fiveyearly') yearly++;
         }
       }
 
       document.getElementById('totalCount').textContent = total;
+      document.getElementById('dailyCount').textContent = daily;
       document.getElementById('monthlyCount').textContent = monthly;
       document.getElementById('yearlyCount').textContent = yearly;
-      document.getElementById('triannualCount').textContent = triannual;
 
       // 結果HTML
       const categoryNames = {
         building: { name: '建築基準法', icon: '🏗️' },
         fire: { name: '消防法', icon: '🔥' },
         electric: { name: '電気事業法', icon: '⚡' },
-        water: { name: '水道法・ビル管法・その他', icon: '💧' }
+        water: { name: '水道法・ビル管法・労安法', icon: '💧' },
+        gas: { name: 'ガス関連法（高圧ガス・LP・都市ガス）', icon: '🔵' },
+        environment: { name: '環境関連法（フロン・大気・水質）', icon: '🌿' },
+        parking: { name: '駐車場法', icon: '🅿️' },
+        asbestos: { name: '石綿障害予防規則', icon: '⚠️' }
       };
 
       let html = '';
@@ -1168,7 +1197,16 @@
       csv += '\n';
       csv += 'カテゴリ,点検名,根拠法令,点検周期,報告先,詳細,備考\n';
 
-      const categoryNames = { building: '建築基準法', fire: '消防法', electric: '電気事業法', water: '水道法・ビル管法等' };
+      const categoryNames = { 
+        building: '建築基準法', 
+        fire: '消防法', 
+        electric: '電気事業法', 
+        water: '水道法・ビル管法・労安法',
+        gas: 'ガス関連法',
+        environment: '環境関連法',
+        parking: '駐車場法',
+        asbestos: '石綿関連'
+      };
 
       for (const [category, items] of Object.entries(window.currentResults)) {
         for (const item of items) {
