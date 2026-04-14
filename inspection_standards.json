@@ -1,7 +1,11 @@
 {
-  "version": "2026.04.14.2",
+  "version": "2026.04.14.3",
   "lastUpdated": "2026-04-14",
   "updateHistory": [
+    {
+      "date": "2026-04-14",
+      "description": "環境関連施設の設備選択肢を具体化（大型ボイラー、ディーゼル発電機、大型厨房、洗濯施設等）"
+    },
     {
       "date": "2026-04-14",
       "description": "全点検項目に法定最低回数（legalMinimum）と推奨回数（recommended）を追加"
@@ -1300,9 +1304,12 @@
         "cycleType": "bimonthly",
         "reportTo": "都道府県知事",
         "requiredEquipment": [
-          "smokeEmitter"
+          "largeBoiler",
+          "dieselGenerator",
+          "gasEngine",
+          "incinerator"
         ],
-        "details": "ボイラー、ディーゼル機関等のばい煙発生施設からの排出ガスを測定。硫黄酸化物、窒素酸化物、ばいじん等。",
+        "details": "大型ボイラー（伝熱面積10㎡以上）、ディーゼル発電機（燃料消費50L/h以上）、焼却炉等のばい煙発生施設からの排出ガスを測定。硫黄酸化物、窒素酸化物、ばいじん等。",
         "legalMinimum": "ばいじん等2ヶ月/NOx年2回"
       },
       {
@@ -1313,9 +1320,12 @@
         "cycleType": "asneeded",
         "reportTo": "都道府県知事",
         "requiredEquipment": [
-          "smokeEmitter"
+          "largeBoiler",
+          "dieselGenerator",
+          "gasEngine",
+          "incinerator"
         ],
-        "details": "ばい煙発生施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。",
+        "details": "ばい煙発生施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。対象：大型ボイラー、ディーゼル発電機、ガスエンジン、焼却炉等。",
         "legalMinimum": "設置60日前届出"
       },
       {
@@ -1326,9 +1336,12 @@
         "cycleType": "yearly",
         "reportTo": "都道府県知事",
         "requiredEquipment": [
-          "wastewaterFacility"
+          "largeKitchen",
+          "laundryFacility",
+          "carWashFacility",
+          "laboratoryFacility"
         ],
-        "details": "特定施設から公共用水域に排出される水の汚染状態を測定。pH、BOD、COD、SS、油分等。",
+        "details": "大型厨房（360㎡以上）、洗濯・クリーニング施設、洗車施設、実験施設等から公共用水域に排出される水の汚染状態を測定。pH、BOD、COD、SS、油分等。",
         "legalMinimum": "1年に1回以上"
       },
       {
@@ -1339,9 +1352,12 @@
         "cycleType": "asneeded",
         "reportTo": "都道府県知事",
         "requiredEquipment": [
-          "wastewaterFacility"
+          "largeKitchen",
+          "laundryFacility",
+          "carWashFacility",
+          "laboratoryFacility"
         ],
-        "details": "特定施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。",
+        "details": "特定施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。対象：大型厨房、洗濯施設、洗車施設、実験施設等。",
         "legalMinimum": "設置60日前届出"
       }
     ],
