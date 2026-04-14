@@ -1,7 +1,15 @@
 {
-  "version": "2026.04.10.3",
-  "lastUpdated": "2026-04-10",
+  "version": "2026.04.14.2",
+  "lastUpdated": "2026-04-14",
   "updateHistory": [
+    {
+      "date": "2026-04-14",
+      "description": "全点検項目に法定最低回数（legalMinimum）と推奨回数（recommended）を追加"
+    },
+    {
+      "date": "2026-04-14",
+      "description": "点検項目大幅追加：設備保守（シャッター、自動ドア、中央監視、ITV等）、空調・換気（AHU、フィルター清掃等）、給排水（ポンプ類、排水槽等）、清掃（定期清掃、ガラス清掃等）、管理者届出（統括防火管理者、防災管理者等）、その他（ホルムアルデヒド、AED等）"
+    },
     {
       "date": "2026-04-10",
       "description": "フロン点検の設備選択肢を細分化（7.5kW未満/7.5kW以上50kW未満/50kW以上）。すべての業務用機器で簡易点検が表示されるよう修正"
@@ -49,15 +57,41 @@
       "note": "北海道の基準を適用。札幌市内の建物は札幌市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "tokyo": {
@@ -66,27 +100,48 @@
       "note": "東京都建築安全条例に基づく基準を適用。特別区および市によってさらに細かい基準がある場合があります。",
       "lastUpdated": "2025-07-01",
       "specificBuilding": {
-        "office": { 
-          "minFloors": 5, 
-          "minArea": 2000, 
-          "minSpecificArea": 1000, 
-          "requiresUpperFloorArea": true, 
+        "office": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "minSpecificArea": 1000,
+          "requiresUpperFloorArea": true,
           "upperFloorAreaMin": 100,
           "note": "5階建以上かつ延床2,000㎡超で、3階以上の事務所部分が100㎡超"
         },
-        "commercial": { 
-          "minFloors": 3, 
-          "minArea": 500, 
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
           "minSpecificArea": 100,
           "note": "3階以上にあり床面積100㎡超、または地階にあり床面積100㎡超"
         },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300, "orBeds": 20 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "kanagawa": {
@@ -95,15 +150,43 @@
       "note": "神奈川県の基準を適用。横浜市・川崎市・相模原市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000, "minSpecificArea": 500 },
-        "commercial": { "minFloors": 3, "minArea": 500, "minSpecificArea": 100 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "minSpecificArea": 500
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "minSpecificArea": 100
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "saitama": {
@@ -112,15 +195,41 @@
       "note": "埼玉県の基準を適用。さいたま市内の建物はさいたま市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "chiba": {
@@ -129,15 +238,41 @@
       "note": "千葉県の基準を適用。千葉市・船橋市・柏市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "osaka": {
@@ -146,20 +281,44 @@
       "note": "大阪府の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { 
-          "minFloors": 3, 
-          "minArea": 200, 
+        "office": {
+          "minFloors": 3,
+          "minArea": 200,
           "minSpecificArea": 100,
           "note": "3階以上に事務所100㎡超かつ延床200㎡以上"
         },
-        "commercial": { "minFloors": 3, "minArea": 200, "minSpecificArea": 100 },
-        "hotel": { "minFloors": 3, "minArea": 200 },
-        "hospital": { "minFloors": 3, "minArea": 200 },
-        "welfare": { "minFloors": 2, "minArea": 200 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 200 },
-        "school": { "minArea": 8000 }
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 200,
+          "minSpecificArea": 100
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 200
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "aichi": {
@@ -168,15 +327,41 @@
       "note": "愛知県の基準を適用。名古屋市内の建物は名古屋市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "kyoto": {
@@ -185,15 +370,41 @@
       "note": "京都府の基準を適用。京都市内の建物は京都市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "hyogo": {
@@ -202,15 +413,41 @@
       "note": "兵庫県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "hiroshima": {
@@ -219,15 +456,41 @@
       "note": "広島県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "fukuoka": {
@@ -236,15 +499,41 @@
       "note": "福岡県の基準を適用。福岡市・北九州市・久留米市内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "niigata": {
@@ -253,15 +542,41 @@
       "note": "新潟県の基準を適用。新潟市内の建物は新潟市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 1000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     },
     "default": {
@@ -270,15 +585,41 @@
       "note": "国が定める基準（建築基準法施行令）を適用。各自治体で追加の対象建築物が指定されている場合があります。詳細は所轄の特定行政庁にお問い合わせください。",
       "lastUpdated": "2025-07-01",
       "specificBuilding": {
-        "office": { "minFloors": 5, "minArea": 2000 },
-        "commercial": { "minFloors": 3, "minArea": 500 },
-        "hotel": { "minFloors": 3, "minArea": 300 },
-        "hospital": { "minFloors": 3, "minArea": 300 },
-        "welfare": { "minFloors": 2, "minArea": 300 },
-        "apartment": { "minFloors": 5, "minArea": 1000 },
-        "theater": { "minFloors": 3, "minArea": 200 },
-        "restaurant": { "minFloors": 3, "minArea": 300 },
-        "school": { "minArea": 8000 }
+        "office": {
+          "minFloors": 5,
+          "minArea": 2000
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "hospital": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "welfare": {
+          "minFloors": 2,
+          "minArea": 300
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000
+        },
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300
+        },
+        "school": {
+          "minArea": 8000
+        }
       }
     }
   },
@@ -294,7 +635,8 @@
         "targetType": "specificBuilding",
         "details": "建物の敷地・外部・内部の状況、防火・避難関係の調査。一級建築士等の有資格者が実施。",
         "updated": "2025年7月改正",
-        "isLocal": true
+        "isLocal": true,
+        "legalMinimum": "3年に1回"
       },
       {
         "id": "b2",
@@ -303,9 +645,14 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "特定行政庁",
-        "requiredEquipment": ["smokeExhaust", "aircon", "emergencyLight"],
+        "requiredEquipment": [
+          "smokeExhaust",
+          "aircon",
+          "emergencyLight"
+        ],
         "details": "換気設備、排煙設備、非常用の照明装置、給排水設備の検査。",
-        "updated": "2025年7月改正"
+        "updated": "2025年7月改正",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "b3",
@@ -314,9 +661,12 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "特定行政庁",
-        "requiredEquipment": ["fireShutter"],
+        "requiredEquipment": [
+          "fireShutter"
+        ],
         "details": "防火扉、防火シャッター、耐火クロススクリーン、ドレンチャーの検査。感知器連動式が対象。",
-        "updated": "2025年7月改正（常時閉鎖式防火扉の検査移行）"
+        "updated": "2025年7月改正（常時閉鎖式防火扉の検査移行）",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "b4",
@@ -325,8 +675,12 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "特定行政庁",
-        "requiredEquipment": ["elevator", "escalator"],
-        "details": "エレベーター、エスカレーター、小荷物専用昇降機等の検査。検査済証の掲示義務あり。"
+        "requiredEquipment": [
+          "elevator",
+          "escalator"
+        ],
+        "details": "エレベーター、エスカレーター、小荷物専用昇降機等の検査。検査済証の掲示義務あり。",
+        "legalMinimum": "1年に1回"
       }
     ],
     "fire": [
@@ -337,9 +691,14 @@
         "cycle": "6ヶ月に1回",
         "cycleType": "biannual",
         "reportTo": "所轄消防署",
-        "requiredEquipment": ["fireAlarm", "sprinkler", "indoorHydrant"],
+        "requiredEquipment": [
+          "fireAlarm",
+          "sprinkler",
+          "indoorHydrant"
+        ],
         "minAreaFallback": 150,
-        "details": "消火器、自動火災報知設備、誘導灯等の外観・機能の点検。"
+        "details": "消火器、自動火災報知設備、誘導灯等の外観・機能の点検。",
+        "legalMinimum": "6ヶ月に1回"
       },
       {
         "id": "f2",
@@ -348,9 +707,14 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "所轄消防署",
-        "requiredEquipment": ["fireAlarm", "sprinkler", "indoorHydrant"],
+        "requiredEquipment": [
+          "fireAlarm",
+          "sprinkler",
+          "indoorHydrant"
+        ],
         "minAreaFallback": 150,
-        "details": "消防設備を実際に作動させ、総合的な機能を確認。"
+        "details": "消防設備を実際に作動させ、総合的な機能を確認。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "f3",
@@ -359,8 +723,16 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "所轄消防署",
-        "targetUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
-        "details": "病院、ホテル、店舗、飲食店等の特定防火対象物は1年に1回の報告義務。"
+        "targetUsages": [
+          "hotel",
+          "hospital",
+          "welfare",
+          "commercial",
+          "theater",
+          "restaurant"
+        ],
+        "details": "病院、ホテル、店舗、飲食店等の特定防火対象物は1年に1回の報告義務。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "f4",
@@ -369,9 +741,22 @@
         "cycle": "3年に1回",
         "cycleType": "triannual",
         "reportTo": "所轄消防署",
-        "targetUsages": ["office", "apartment", "factory", "school"],
-        "excludeUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
-        "details": "事務所、共同住宅、工場、学校等の非特定防火対象物は3年に1回の報告義務。"
+        "targetUsages": [
+          "office",
+          "apartment",
+          "factory",
+          "school"
+        ],
+        "excludeUsages": [
+          "hotel",
+          "hospital",
+          "welfare",
+          "commercial",
+          "theater",
+          "restaurant"
+        ],
+        "details": "事務所、共同住宅、工場、学校等の非特定防火対象物は3年に1回の報告義務。",
+        "legalMinimum": "3年に1回"
       },
       {
         "id": "f5",
@@ -380,11 +765,19 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "所轄消防署",
-        "targetUsages": ["hotel", "hospital", "welfare", "commercial", "theater", "restaurant"],
+        "targetUsages": [
+          "hotel",
+          "hospital",
+          "welfare",
+          "commercial",
+          "theater",
+          "restaurant"
+        ],
         "minFloors": 3,
         "orBasement": true,
         "minOccupants": 30,
-        "details": "防火管理の状況、消防計画の適合状況等を点検。防火対象物点検資格者が実施。収容人員30人以上が対象。"
+        "details": "防火管理の状況、消防計画の適合状況等を点検。防火対象物点検資格者が実施。収容人員30人以上が対象。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "f6",
@@ -393,9 +786,15 @@
         "cycle": "6ヶ月に1回（機器）/1年に1回（総合）",
         "cycleType": "yearly",
         "reportTo": "所轄消防署",
-        "requiredEquipment": ["generator"],
-        "alsoRequires": ["fireAlarm", "sprinkler"],
-        "details": "消防用設備等の非常電源として設置される自家発電設備の点検。負荷運転試験等。"
+        "requiredEquipment": [
+          "generator"
+        ],
+        "alsoRequires": [
+          "fireAlarm",
+          "sprinkler"
+        ],
+        "details": "消防用設備等の非常電源として設置される自家発電設備の点検。負荷運転試験等。",
+        "legalMinimum": "機器6ヶ月/総合1年"
       }
     ],
     "electric": [
@@ -406,8 +805,12 @@
         "cycle": "毎月または隔月1回",
         "cycleType": "monthly",
         "reportTo": "保安規程に基づく",
-        "requiredEquipment": ["cubicle"],
-        "details": "漏電の有無、機器の異常な温度上昇、異音異臭の確認等。電気主任技術者または外部委託先が実施。"
+        "requiredEquipment": [
+          "cubicle"
+        ],
+        "details": "漏電の有無、機器の異常な温度上昇、異音異臭の確認等。電気主任技術者または外部委託先が実施。",
+        "legalMinimum": "隔月1回（外部委託の場合）",
+        "recommended": "毎月1回"
       },
       {
         "id": "e2",
@@ -416,8 +819,12 @@
         "cycle": "1年に1回（条件により3年に1回可）",
         "cycleType": "yearly",
         "reportTo": "保安規程に基づく",
-        "requiredEquipment": ["cubicle"],
-        "details": "停電作業を伴う精密点検。絶縁抵抗測定、接地抵抗測定、保護継電器試験等。予防的保全策実施時は3年に1回も可。"
+        "requiredEquipment": [
+          "cubicle"
+        ],
+        "details": "停電作業を伴う精密点検。絶縁抵抗測定、接地抵抗測定、保護継電器試験等。予防的保全策実施時は3年に1回も可。",
+        "legalMinimum": "1年に1回（条件により3年可）",
+        "recommended": "1年に1回"
       },
       {
         "id": "e3",
@@ -426,8 +833,12 @@
         "cycle": "保安規程による（年1回程度）",
         "cycleType": "yearly",
         "reportTo": "保安規程に基づく",
-        "requiredEquipment": ["generator"],
-        "details": "自家発電設備の電気事業法に基づく点検。電気主任技術者による管理。"
+        "requiredEquipment": [
+          "generator"
+        ],
+        "details": "自家発電設備の電気事業法に基づく点検。電気主任技術者による管理。",
+        "legalMinimum": "保安規程による",
+        "recommended": "1年に1回"
       }
     ],
     "water": [
@@ -438,8 +849,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "登録検査機関",
-        "requiredEquipment": ["watertank"],
-        "details": "受水槽の有効容量10㎥超の施設が対象。施設・書類・水質の検査。検査を受けない場合100万円以下の罰金。"
+        "requiredEquipment": [
+          "watertank"
+        ],
+        "details": "受水槽の有効容量10㎥超の施設が対象。施設・書類・水質の検査。検査を受けない場合100万円以下の罰金。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w2",
@@ -448,8 +862,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存5年",
-        "requiredEquipment": ["watertank"],
-        "details": "受水槽・高置水槽の清掃。建築物飲料水貯水槽清掃業者（都道府県知事登録）に委託。"
+        "requiredEquipment": [
+          "watertank"
+        ],
+        "details": "受水槽・高置水槽の清掃。建築物飲料水貯水槽清掃業者（都道府県知事登録）に委託。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w3",
@@ -458,10 +875,16 @@
         "cycle": "2ヶ月に1回",
         "cycleType": "bimonthly",
         "reportTo": "保健所届出",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "浮遊粉じん、CO、CO2、温度、湿度、気流の測定。建築物環境衛生管理技術者（ビル管理士）が管理。"
+        "details": "浮遊粉じん、CO、CO2、温度、湿度、気流の測定。建築物環境衛生管理技術者（ビル管理士）が管理。",
+        "legalMinimum": "2ヶ月に1回"
       },
       {
         "id": "w4",
@@ -470,11 +893,19 @@
         "cycle": "6ヶ月に1回（16項目）/年1回（全項目）",
         "cycleType": "biannual",
         "reportTo": "保健所届出",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "requiredEquipment": ["watertank"],
-        "details": "飲料水の水質検査。残留塩素は毎日測定が必要。"
+        "requiredEquipment": [
+          "watertank"
+        ],
+        "details": "飲料水の水質検査。残留塩素は毎日測定が必要。",
+        "legalMinimum": "6ヶ月に1回"
       },
       {
         "id": "w5",
@@ -483,10 +914,16 @@
         "cycle": "毎日",
         "cycleType": "daily",
         "reportTo": "記録保存",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "床面、トイレ、洗面所、ゴミ箱等の日常的な清掃。清掃の実施状況を記録。"
+        "details": "床面、トイレ、洗面所、ゴミ箱等の日常的な清掃。清掃の実施状況を記録。",
+        "legalMinimum": "1日1回以上"
       },
       {
         "id": "w6",
@@ -495,10 +932,16 @@
         "cycle": "6ヶ月に1回以上",
         "cycleType": "biannual",
         "reportTo": "記録保存",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "建築物内の大掃除を6ヶ月以内ごとに1回、統一的に実施。日常清掃では行き届かない場所を重点的に。"
+        "details": "建築物内の大掃除を6ヶ月以内ごとに1回、統一的に実施。日常清掃では行き届かない場所を重点的に。",
+        "legalMinimum": "6ヶ月に1回"
       },
       {
         "id": "w7",
@@ -507,10 +950,17 @@
         "cycle": "定期（6ヶ月に1回程度）",
         "cycleType": "biannual",
         "reportTo": "記録保存",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "真空掃除機、床磨き機等の清掃用機械・器具の点検・整備。衛生的に保管。"
+        "details": "真空掃除機、床磨き機等の清掃用機械・器具の点検・整備。衛生的に保管。",
+        "legalMinimum": "定期的に",
+        "recommended": "6ヶ月に1回"
       },
       {
         "id": "w8",
@@ -519,10 +969,16 @@
         "cycle": "6ヶ月に1回以上調査/必要に応じ防除",
         "cycleType": "biannual",
         "reportTo": "記録保存",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "ねずみ、ゴキブリ等の昆虫の発生場所、生息状況、侵入経路を調査。必要に応じて駆除を実施。"
+        "details": "ねずみ、ゴキブリ等の昆虫の発生場所、生息状況、侵入経路を調査。必要に応じて駆除を実施。",
+        "legalMinimum": "6ヶ月に1回"
       },
       {
         "id": "w9",
@@ -531,8 +987,11 @@
         "cycle": "4ヶ月に1回以上",
         "cycleType": "quarterly",
         "reportTo": "都道府県知事",
-        "requiredEquipment": ["septic"],
-        "details": "処理方式・人槽により頻度が異なる（合併処理21人以上は2週間に1回等）。浄化槽管理士が実施。"
+        "requiredEquipment": [
+          "septic"
+        ],
+        "details": "処理方式・人槽により頻度が異なる（合併処理21人以上は2週間に1回等）。浄化槽管理士が実施。",
+        "legalMinimum": "4ヶ月に1回以上"
       },
       {
         "id": "w10",
@@ -541,8 +1000,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "市町村長許可業者",
-        "requiredEquipment": ["septic"],
-        "details": "許可業者による汚泥の引き抜き・清掃。全ばっ気方式は6ヶ月に1回以上。"
+        "requiredEquipment": [
+          "septic"
+        ],
+        "details": "許可業者による汚泥の引き抜き・清掃。全ばっ気方式は6ヶ月に1回以上。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w11",
@@ -551,8 +1013,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "指定検査機関",
-        "requiredEquipment": ["septic"],
-        "details": "外観検査、水質検査、書類検査。設置後の7条検査と毎年の11条検査。"
+        "requiredEquipment": [
+          "septic"
+        ],
+        "details": "外観検査、水質検査、書類検査。設置後の7条検査と毎年の11条検査。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w12",
@@ -561,8 +1026,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "労働基準監督署または登録機関",
-        "requiredEquipment": ["boiler"],
-        "details": "労働基準監督署長または登録性能検査機関による検査。検査証の有効期間更新。小型ボイラーは対象外。"
+        "requiredEquipment": [
+          "boiler"
+        ],
+        "details": "労働基準監督署長または登録性能検査機関による検査。検査証の有効期間更新。小型ボイラーは対象外。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w13",
@@ -571,8 +1039,11 @@
         "cycle": "1ヶ月に1回",
         "cycleType": "monthly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["boiler"],
-        "details": "事業者による自主検査。ボイラー及び付属設備の損傷・異常の有無、安全弁等の機能等。"
+        "requiredEquipment": [
+          "boiler"
+        ],
+        "details": "事業者による自主検査。ボイラー及び付属設備の損傷・異常の有無、安全弁等の機能等。",
+        "legalMinimum": "1ヶ月に1回"
       },
       {
         "id": "w14",
@@ -581,8 +1052,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["coolingTower"],
-        "details": "冷却塔、冷却水の水管、加湿装置の清掃。レジオネラ属菌対策として重要。使用開始時・終了時にも実施。"
+        "requiredEquipment": [
+          "coolingTower"
+        ],
+        "details": "冷却塔、冷却水の水管、加湿装置の清掃。レジオネラ属菌対策として重要。使用開始時・終了時にも実施。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w15",
@@ -591,8 +1065,11 @@
         "cycle": "1ヶ月に1回以上",
         "cycleType": "monthly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["coolingTower"],
-        "details": "使用期間中、冷却塔・冷却水の汚れの状況を1ヶ月以内ごとに1回点検。必要に応じ清掃・換水。"
+        "requiredEquipment": [
+          "coolingTower"
+        ],
+        "details": "使用期間中、冷却塔・冷却水の汚れの状況を1ヶ月以内ごとに1回点検。必要に応じ清掃・換水。",
+        "legalMinimum": "1ヶ月に1回"
       },
       {
         "id": "w16",
@@ -601,11 +1078,19 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["aircon"],
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "requiredEquipment": [
+          "aircon"
+        ],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "加湿装置の清掃。使用開始時・使用終了時に実施。レジオネラ症やカビの発生防止。"
+        "details": "加湿装置の清掃。使用開始時・使用終了時に実施。レジオネラ症やカビの発生防止。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "w17",
@@ -614,10 +1099,16 @@
         "cycle": "6ヶ月に1回以上",
         "cycleType": "biannual",
         "reportTo": "記録保存",
-        "targetUsages": ["office", "commercial", "hotel", "theater"],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
         "minArea": 3000,
         "schoolMinArea": 8000,
-        "details": "排水管、排水ます、阻集器の清掃。悪臭や害虫発生防止のため定期的に実施。"
+        "details": "排水管、排水ます、阻集器の清掃。悪臭や害虫発生防止のため定期的に実施。",
+        "legalMinimum": "6ヶ月に1回"
       }
     ],
     "gas": [
@@ -628,8 +1119,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "都道府県知事または高圧ガス保安協会",
-        "requiredEquipment": ["highPressureGas"],
-        "details": "第一種製造者の製造施設の位置、構造、設備が技術上の基準に適合しているか検査。"
+        "requiredEquipment": [
+          "highPressureGas"
+        ],
+        "details": "第一種製造者の製造施設の位置、構造、設備が技術上の基準に適合しているか検査。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "g2",
@@ -638,8 +1132,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["highPressureGas"],
-        "details": "第一種製造者による自主検査。製造施設の位置、構造、設備の技術基準適合性を確認。"
+        "requiredEquipment": [
+          "highPressureGas"
+        ],
+        "details": "第一種製造者による自主検査。製造施設の位置、構造、設備の技術基準適合性を確認。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "g3",
@@ -648,8 +1145,12 @@
         "cycle": "1年に1回（または3年に1回）",
         "cycleType": "yearly",
         "reportTo": "都道府県知事または高圧ガス保安協会",
-        "requiredEquipment": ["refrigerator"],
-        "details": "冷凍能力20トン以上（フロンは50トン以上）の冷凍設備が対象。認定事業者は3年に1回。"
+        "requiredEquipment": [
+          "refrigerator"
+        ],
+        "details": "冷凍能力20トン以上（フロンは50トン以上）の冷凍設備が対象。認定事業者は3年に1回。",
+        "legalMinimum": "1年に1回（認定は3年）",
+        "recommended": "1年に1回"
       },
       {
         "id": "g4",
@@ -658,8 +1159,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["refrigerator"],
-        "details": "第一種製造者（冷凍）による自主検査。圧縮機、凝縮器、蒸発器等の点検。"
+        "requiredEquipment": [
+          "refrigerator"
+        ],
+        "details": "第一種製造者（冷凍）による自主検査。圧縮機、凝縮器、蒸発器等の点検。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "g5",
@@ -668,8 +1172,11 @@
         "cycle": "4年に1回以上",
         "cycleType": "fouryearly",
         "reportTo": "LPガス販売事業者",
-        "requiredEquipment": ["lpGas"],
-        "details": "LPガス販売事業者による消費設備の調査。ガス漏れ検査、燃焼器具の確認等。地下室は1年に1回。"
+        "requiredEquipment": [
+          "lpGas"
+        ],
+        "details": "LPガス販売事業者による消費設備の調査。ガス漏れ検査、燃焼器具の確認等。地下室は1年に1回。",
+        "legalMinimum": "4年に1回"
       },
       {
         "id": "g6",
@@ -678,8 +1185,11 @@
         "cycle": "製造後20年未満：5年/製造後20年以上：2年",
         "cycleType": "fiveyearly",
         "reportTo": "容器検査所",
-        "requiredEquipment": ["lpGas"],
-        "details": "LPガス容器（ボンベ）の耐圧検査、外観検査等。検査に合格しないと充填不可。"
+        "requiredEquipment": [
+          "lpGas"
+        ],
+        "details": "LPガス容器（ボンベ）の耐圧検査、外観検査等。検査に合格しないと充填不可。",
+        "legalMinimum": "5年に1回（20年超は2年）"
       },
       {
         "id": "g7",
@@ -688,8 +1198,11 @@
         "cycle": "4年に1回以上",
         "cycleType": "fouryearly",
         "reportTo": "ガス事業者",
-        "requiredEquipment": ["cityGas"],
-        "details": "ガス事業者による消費機器の調査。給排気設備の状況、ガス漏れ検査、不完全燃焼防止措置の確認等。"
+        "requiredEquipment": [
+          "cityGas"
+        ],
+        "details": "ガス事業者による消費機器の調査。給排気設備の状況、ガス漏れ検査、不完全燃焼防止措置の確認等。",
+        "legalMinimum": "4年に1回"
       },
       {
         "id": "g8",
@@ -698,8 +1211,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "経済産業大臣",
-        "requiredEquipment": ["cityGas"],
-        "details": "特定ガス工作物（大規模なガス設備）の保安検査。一般消費者は対象外。ガス事業者向け規定。"
+        "requiredEquipment": [
+          "cityGas"
+        ],
+        "details": "特定ガス工作物（大規模なガス設備）の保安検査。一般消費者は対象外。ガス事業者向け規定。",
+        "legalMinimum": "1年に1回"
       }
     ],
     "environment": [
@@ -710,8 +1226,15 @@
         "cycle": "3ヶ月に1回以上",
         "cycleType": "quarterly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercialSmall", "airconCommercialMedium", "airconCommercialLarge", "refrigeratorCommercialSmall", "refrigeratorCommercialLarge"],
-        "details": "すべての業務用エアコン・冷凍冷蔵機器が対象。管理者（ユーザー）による目視点検。室外機の異音、油にじみ、熱交換器の霜付き、腐食等を確認。"
+        "requiredEquipment": [
+          "airconCommercialSmall",
+          "airconCommercialMedium",
+          "airconCommercialLarge",
+          "refrigeratorCommercialSmall",
+          "refrigeratorCommercialLarge"
+        ],
+        "details": "すべての業務用エアコン・冷凍冷蔵機器が対象。管理者（ユーザー）による目視点検。室外機の異音、油にじみ、熱交換器の霜付き、腐食等を確認。",
+        "legalMinimum": "3ヶ月に1回"
       },
       {
         "id": "ev2",
@@ -720,8 +1243,11 @@
         "cycle": "3年に1回以上",
         "cycleType": "triannual",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercialMedium"],
-        "details": "圧縮機の定格出力7.5kW以上50kW未満のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
+        "requiredEquipment": [
+          "airconCommercialMedium"
+        ],
+        "details": "圧縮機の定格出力7.5kW以上50kW未満のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。",
+        "legalMinimum": "3年に1回"
       },
       {
         "id": "ev3",
@@ -730,8 +1256,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["airconCommercialLarge"],
-        "details": "圧縮機の定格出力50kW以上のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
+        "requiredEquipment": [
+          "airconCommercialLarge"
+        ],
+        "details": "圧縮機の定格出力50kW以上のエアコンが対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "ev4",
@@ -740,8 +1269,11 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存3年",
-        "requiredEquipment": ["refrigeratorCommercialLarge"],
-        "details": "圧縮機の定格出力7.5kW以上の冷凍冷蔵機器が対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。"
+        "requiredEquipment": [
+          "refrigeratorCommercialLarge"
+        ],
+        "details": "圧縮機の定格出力7.5kW以上の冷凍冷蔵機器が対象。十分な知見を有する者（冷媒フロン類取扱技術者等）による点検。直接法または間接法で漏えい検査。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "ev5",
@@ -750,8 +1282,15 @@
         "cycle": "年度終了後（年1回）",
         "cycleType": "yearly",
         "reportTo": "主務大臣（環境省・経産省）",
-        "requiredEquipment": ["airconCommercialSmall", "airconCommercialMedium", "airconCommercialLarge", "refrigeratorCommercialSmall", "refrigeratorCommercialLarge"],
-        "details": "事業者全体で年間漏えい量1,000t-CO2以上の場合は報告義務。電子システム（フロン類算定漏えい量報告・届出システム）での報告可能。"
+        "requiredEquipment": [
+          "airconCommercialSmall",
+          "airconCommercialMedium",
+          "airconCommercialLarge",
+          "refrigeratorCommercialSmall",
+          "refrigeratorCommercialLarge"
+        ],
+        "details": "事業者全体で年間漏えい量1,000t-CO2以上の場合は報告義務。電子システム（フロン類算定漏えい量報告・届出システム）での報告可能。",
+        "legalMinimum": "1年に1回（1000t-CO2以上）"
       },
       {
         "id": "ev6",
@@ -760,8 +1299,11 @@
         "cycle": "2ヶ月に1回以上（ばいじん・SOx等）/年2回以上（NOx）",
         "cycleType": "bimonthly",
         "reportTo": "都道府県知事",
-        "requiredEquipment": ["smokeEmitter"],
-        "details": "ボイラー、ディーゼル機関等のばい煙発生施設からの排出ガスを測定。硫黄酸化物、窒素酸化物、ばいじん等。"
+        "requiredEquipment": [
+          "smokeEmitter"
+        ],
+        "details": "ボイラー、ディーゼル機関等のばい煙発生施設からの排出ガスを測定。硫黄酸化物、窒素酸化物、ばいじん等。",
+        "legalMinimum": "ばいじん等2ヶ月/NOx年2回"
       },
       {
         "id": "ev7",
@@ -770,8 +1312,11 @@
         "cycle": "設置時・変更時",
         "cycleType": "asneeded",
         "reportTo": "都道府県知事",
-        "requiredEquipment": ["smokeEmitter"],
-        "details": "ばい煙発生施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。"
+        "requiredEquipment": [
+          "smokeEmitter"
+        ],
+        "details": "ばい煙発生施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。",
+        "legalMinimum": "設置60日前届出"
       },
       {
         "id": "ev8",
@@ -780,8 +1325,11 @@
         "cycle": "排出水：年1回以上/特定地下浸透水：年1回以上",
         "cycleType": "yearly",
         "reportTo": "都道府県知事",
-        "requiredEquipment": ["wastewaterFacility"],
-        "details": "特定施設から公共用水域に排出される水の汚染状態を測定。pH、BOD、COD、SS、油分等。"
+        "requiredEquipment": [
+          "wastewaterFacility"
+        ],
+        "details": "特定施設から公共用水域に排出される水の汚染状態を測定。pH、BOD、COD、SS、油分等。",
+        "legalMinimum": "1年に1回以上"
       },
       {
         "id": "ev9",
@@ -790,8 +1338,11 @@
         "cycle": "設置時・変更時",
         "cycleType": "asneeded",
         "reportTo": "都道府県知事",
-        "requiredEquipment": ["wastewaterFacility"],
-        "details": "特定施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。"
+        "requiredEquipment": [
+          "wastewaterFacility"
+        ],
+        "details": "特定施設の設置・構造変更・使用廃止の届出。設置は60日前までに届出が必要。",
+        "legalMinimum": "設置60日前届出"
       }
     ],
     "parking": [
@@ -802,8 +1353,11 @@
         "cycle": "1年に1回",
         "cycleType": "yearly",
         "reportTo": "特定行政庁",
-        "requiredEquipment": ["mechanicalParking"],
-        "details": "機械式駐車装置の安全性に関する定期検査。一級建築士等または昇降機等検査員資格者が実施。"
+        "requiredEquipment": [
+          "mechanicalParking"
+        ],
+        "details": "機械式駐車装置の安全性に関する定期検査。一級建築士等または昇降機等検査員資格者が実施。",
+        "legalMinimum": "1年に1回"
       },
       {
         "id": "pk2",
@@ -812,8 +1366,12 @@
         "cycle": "1ヶ月に1回",
         "cycleType": "monthly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["mechanicalParking"],
-        "details": "管理者または専門業者による点検。駆動装置、安全装置、制御装置等の動作確認。"
+        "requiredEquipment": [
+          "mechanicalParking"
+        ],
+        "details": "管理者または専門業者による点検。駆動装置、安全装置、制御装置等の動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1ヶ月に1回"
       },
       {
         "id": "pk3",
@@ -822,8 +1380,11 @@
         "cycle": "届出時・変更時",
         "cycleType": "asneeded",
         "reportTo": "都道府県知事または市長",
-        "requiredEquipment": ["parkingLot"],
-        "details": "路外駐車場（500㎡以上）の設置届出、管理規程の届出。構造・設備の技術的基準適合。"
+        "requiredEquipment": [
+          "parkingLot"
+        ],
+        "details": "路外駐車場（500㎡以上）の設置届出、管理規程の届出。構造・設備の技術的基準適合。",
+        "legalMinimum": "届出時"
       }
     ],
     "asbestos": [
@@ -834,8 +1395,12 @@
         "cycle": "作業前・定期（概ね1年に1回）",
         "cycleType": "yearly",
         "reportTo": "記録保存（40年間）",
-        "requiredEquipment": ["asbestosContaining"],
-        "details": "石綿含有建材の損傷、劣化、粉じん発散の有無を目視により点検。損傷等があれば補修または除去。"
+        "requiredEquipment": [
+          "asbestosContaining"
+        ],
+        "details": "石綿含有建材の損傷、劣化、粉じん発散の有無を目視により点検。損傷等があれば補修または除去。",
+        "legalMinimum": "定めなし（事業者義務）",
+        "recommended": "1年に1回"
       },
       {
         "id": "as2",
@@ -844,8 +1409,11 @@
         "cycle": "6ヶ月に1回",
         "cycleType": "biannual",
         "reportTo": "記録保存40年",
-        "requiredEquipment": ["asbestosContaining"],
-        "details": "石綿を取り扱う作業場における空気中の石綿濃度測定。総繊維数濃度法または位相差顕微鏡法。"
+        "requiredEquipment": [
+          "asbestosContaining"
+        ],
+        "details": "石綿を取り扱う作業場における空気中の石綿濃度測定。総繊維数濃度法または位相差顕微鏡法。",
+        "legalMinimum": "6ヶ月に1回"
       },
       {
         "id": "as3",
@@ -854,8 +1422,11 @@
         "cycle": "解体・改修工事前",
         "cycleType": "asneeded",
         "reportTo": "都道府県知事等",
-        "requiredEquipment": ["asbestosContaining"],
-        "details": "解体・改修工事前の事前調査。一定規模以上の工事は調査結果の報告義務あり。有資格者（建築物石綿含有建材調査者）が実施。"
+        "requiredEquipment": [
+          "asbestosContaining"
+        ],
+        "details": "解体・改修工事前の事前調査。一定規模以上の工事は調査結果の報告義務あり。有資格者（建築物石綿含有建材調査者）が実施。",
+        "legalMinimum": "解体・改修前"
       },
       {
         "id": "as4",
@@ -864,8 +1435,655 @@
         "cycle": "1年に1回以上",
         "cycleType": "yearly",
         "reportTo": "記録保存",
-        "requiredEquipment": ["asbestosContaining"],
-        "details": "封じ込めまたは囲い込みを行った石綿含有建材の損傷、劣化等の状況を定期点検。異常があれば措置。"
+        "requiredEquipment": [
+          "asbestosContaining"
+        ],
+        "details": "封じ込めまたは囲い込みを行った石綿含有建材の損傷、劣化等の状況を定期点検。異常があれば措置。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      }
+    ],
+    "facility": [
+      {
+        "id": "fc1",
+        "name": "エレベーター保守点検",
+        "law": "建築基準法・メーカー推奨",
+        "cycle": "1ヶ月に1回",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "elevator"
+        ],
+        "details": "保守契約に基づく月例点検。ロープ、ブレーキ、ドア、制御装置等の点検・調整・給油。POG契約またはフルメンテナンス契約。",
+        "legalMinimum": "定めなし",
+        "recommended": "1ヶ月に1回"
+      },
+      {
+        "id": "fc2",
+        "name": "エスカレーター保守点検",
+        "law": "建築基準法・メーカー推奨",
+        "cycle": "1ヶ月に1回",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "escalator"
+        ],
+        "details": "保守契約に基づく月例点検。ステップ、ハンドレール、駆動装置、安全装置等の点検・調整・給油。",
+        "legalMinimum": "定めなし",
+        "recommended": "1ヶ月に1回"
+      },
+      {
+        "id": "fc3",
+        "name": "シャッター設備点検",
+        "law": "建築基準法・消防法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "shutter"
+        ],
+        "details": "防火シャッター、重量シャッター等の点検。開閉動作、安全装置、危害防止装置等の確認。",
+        "legalMinimum": "防火設備は1年（建基法）",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc4",
+        "name": "自動ドア設備点検",
+        "law": "メーカー推奨・JIS規格",
+        "cycle": "1年に1回（推奨は年2回）",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "automaticDoor"
+        ],
+        "details": "自動ドアの開閉動作、センサー感度、安全装置、戸先ゴム等の点検・調整。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc5",
+        "name": "中央監視設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "centralMonitoring"
+        ],
+        "details": "中央監視盤、制御盤、各種センサー、通信設備等の点検・動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc6",
+        "name": "入退館管理設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "accessControl"
+        ],
+        "details": "カードリーダー、電気錠、フラッパーゲート、認証装置等の点検・動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc7",
+        "name": "テレビ共聴設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "tvSystem"
+        ],
+        "details": "共聴アンテナ、増幅器、分配器、同軸ケーブル等の点検。受信レベル測定。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc8",
+        "name": "ITV（監視カメラ）設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "securityCamera"
+        ],
+        "details": "監視カメラ、録画装置、モニター等の点検・動作確認。画角・画質の確認、レンズ清掃。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc9",
+        "name": "電話設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "phoneSystem"
+        ],
+        "details": "PBX、電話配線、MDF等の点検。通話品質の確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc10",
+        "name": "車路管制設備点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "parkingGate"
+        ],
+        "details": "ゲート装置、発券機、精算機、ループコイル、信号灯等の点検・動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc11",
+        "name": "屋外広告物点検",
+        "law": "屋外広告物法・建築基準法",
+        "cycle": "3年に1回（自治体により異なる）",
+        "cycleType": "triannual",
+        "reportTo": "所轄行政庁",
+        "requiredEquipment": [
+          "outdoorSign"
+        ],
+        "details": "屋外広告物の安全点検。落下・倒壊防止のための本体、支持部、取付部等の点検。有資格者による点検が必要な場合あり。",
+        "legalMinimum": "自治体条例による（概ね3年）"
+      },
+      {
+        "id": "fc12",
+        "name": "給湯ボイラー点検",
+        "law": "労働安全衛生法・ガス事業法等",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "waterHeaterBoiler"
+        ],
+        "details": "給湯用ボイラーの燃焼状態、安全装置、配管等の点検。小型ボイラーは性能検査不要だが定期点検推奨。",
+        "legalMinimum": "定めなし（小型は性能検査不要）",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc13",
+        "name": "太陽光発電設備点検",
+        "law": "電気事業法・FIT法",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存（50kW以上は保安規程）",
+        "requiredEquipment": [
+          "solarPanel"
+        ],
+        "details": "太陽光パネル、パワーコンディショナー、接続箱、配線等の点検。発電量の確認、目視点検。",
+        "legalMinimum": "50kW以上は保安規程",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "fc14",
+        "name": "非常用発電機 模擬負荷試験",
+        "law": "消防法・電気事業法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "generator"
+        ],
+        "details": "定格出力の30%以上の負荷で運転試験。内部蓄積カーボン除去、機能維持確認。負荷試験車使用または実負荷試験。",
+        "legalMinimum": "1年に1回（消防法）"
+      },
+      {
+        "id": "fc15",
+        "name": "地下タンク漏洩点検",
+        "law": "消防法",
+        "cycle": "定期（容量・設置年数により異なる）",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "requiredEquipment": [
+          "undergroundTank"
+        ],
+        "details": "地下貯蔵タンクの漏洩検査。気密試験、液面監視、タンク内面検査等。設置後15年以上は内面ライニング等の措置が必要。",
+        "legalMinimum": "設置年数・容量による"
+      }
+    ],
+    "hvac": [
+      {
+        "id": "hv1",
+        "name": "AHU・外調機点検",
+        "law": "ビル管法・推奨管理基準",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "ahu"
+        ],
+        "details": "空調機（AHU）、外気調和機の点検。ファン、モーター、ベルト、コイル、ダンパー等の点検・調整。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "hv2",
+        "name": "空冷ヒートポンプエアコン点検",
+        "law": "フロン排出抑制法・推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "airconCommercialSmall",
+          "airconCommercialMedium",
+          "airconCommercialLarge"
+        ],
+        "details": "室外機・室内機の点検。冷媒配管、ドレン、フィルター、熱交換器等の点検・清掃。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "hv3",
+        "name": "換気設備点検（シロッコファン等）",
+        "law": "ビル管法・建築基準法",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "ventilationFan"
+        ],
+        "details": "床置形シロッコファン、送排風機等の点検。ファン、モーター、Vベルト、ダンパー等の点検・調整。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "hv4",
+        "name": "全熱交換器点検・清掃",
+        "law": "ビル管法・推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "heatExchanger"
+        ],
+        "details": "全熱交換器のエレメント、フィルター、ファン等の点検・清掃。熱交換効率の維持。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "hv5",
+        "name": "フィルター清掃（AHU・外調機）",
+        "law": "ビル管法",
+        "cycle": "2〜3ヶ月に1回",
+        "cycleType": "quarterly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "ahu"
+        ],
+        "details": "AHU、外調機のフィルター清掃または交換。プレフィルター、中性能フィルター等。圧力損失の管理。",
+        "legalMinimum": "定めなし",
+        "recommended": "2〜3ヶ月に1回"
+      },
+      {
+        "id": "hv6",
+        "name": "フィルター清掃（ビル用マルチ室内機）",
+        "law": "推奨管理基準",
+        "cycle": "3ヶ月に1回",
+        "cycleType": "quarterly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "airconCommercialSmall",
+          "airconCommercialMedium",
+          "airconCommercialLarge"
+        ],
+        "details": "ビル用マルチエアコン室内機のフィルター清掃。埃・汚れの除去、冷暖房効率の維持。",
+        "legalMinimum": "定めなし",
+        "recommended": "3ヶ月に1回"
+      },
+      {
+        "id": "hv7",
+        "name": "OAダクト・給排気口清掃",
+        "law": "ビル管法",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "ahu",
+          "ventilationFan"
+        ],
+        "details": "外気取入ダクト、給排気口（ガラリ、グリル等）の清掃。虫・ゴミの除去、通気の確保。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      }
+    ],
+    "plumbing": [
+      {
+        "id": "pl1",
+        "name": "残留塩素測定（飲料水）",
+        "law": "ビル管法・水道法",
+        "cycle": "毎日（7日以内に1回以上）",
+        "cycleType": "daily",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "watertank"
+        ],
+        "details": "給水栓における残留塩素濃度の測定。遊離残留塩素0.1mg/L以上を維持。DPD法等で測定。",
+        "legalMinimum": "7日以内に1回",
+        "recommended": "毎日"
+      },
+      {
+        "id": "pl2",
+        "name": "加圧給水ポンプ点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "pressureBoostPump"
+        ],
+        "details": "加圧給水ポンプユニットの点検。ポンプ、モーター、圧力タンク、制御盤、圧力スイッチ等の点検・調整。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "pl3",
+        "name": "湧水・雑排水ポンプ点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "drainagePump"
+        ],
+        "details": "地下湧水ポンプ、雑排水ポンプの点検。ポンプ、フロートスイッチ、逆止弁等の点検・動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "pl4",
+        "name": "汚水ポンプ点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "sewagePump"
+        ],
+        "details": "汚水槽ポンプの点検。水中ポンプ、フロートスイッチ、逆止弁等の点検・動作確認。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "pl5",
+        "name": "排水槽清掃",
+        "law": "ビル管法・下水道法",
+        "cycle": "6ヶ月に1回以上",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "drainageTank"
+        ],
+        "details": "汚水槽、雑排水槽、湧水槽等の清掃。汚泥の引き抜き、槽内の洗浄。悪臭・害虫発生防止。",
+        "legalMinimum": "6ヶ月に1回（ビル管法）"
+      },
+      {
+        "id": "pl6",
+        "name": "雨水桝点検・清掃",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回以上",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "rainwaterDrain"
+        ],
+        "details": "敷地内雨水桝の点検・清掃。落ち葉・土砂の除去、排水機能の確保。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      },
+      {
+        "id": "pl7",
+        "name": "電気温水器点検",
+        "law": "推奨管理基準",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "electricWaterHeater"
+        ],
+        "details": "電気温水器の点検。タンク、ヒーター、温度調節器、安全弁、配管等の点検。",
+        "legalMinimum": "定めなし",
+        "recommended": "1年に1回"
+      }
+    ],
+    "cleaning": [
+      {
+        "id": "cl1",
+        "name": "定期清掃（床面ワックス等）",
+        "law": "ビル管法",
+        "cycle": "1〜3ヶ月に1回",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
+        "minArea": 3000,
+        "details": "床面の洗浄・ワックス掛け。カーペットクリーニング、タイル床の機械洗浄等。日常清掃では対応できない汚れを除去。",
+        "legalMinimum": "定めなし（日常清掃と別途）",
+        "recommended": "1〜3ヶ月に1回"
+      },
+      {
+        "id": "cl2",
+        "name": "ガラス清掃",
+        "law": "ビル管法・推奨管理基準",
+        "cycle": "2〜6ヶ月に1回",
+        "cycleType": "biannual",
+        "reportTo": "記録保存",
+        "requiredEquipment": [],
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
+        "minArea": 3000,
+        "details": "外窓ガラス、内窓ガラスの清掃。高所作業はゴンドラ・ブランコ等使用。作業主任者の選任が必要な場合あり。",
+        "legalMinimum": "定めなし",
+        "recommended": "2〜6ヶ月に1回"
+      },
+      {
+        "id": "cl3",
+        "name": "植栽管理",
+        "law": "推奨管理基準",
+        "cycle": "年間計画による",
+        "cycleType": "yearly",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "greenery"
+        ],
+        "details": "敷地内・屋上の植栽管理。剪定、施肥、病害虫防除、灌水、除草等。",
+        "legalMinimum": "定めなし",
+        "recommended": "年間計画"
+      }
+    ],
+    "manager": [
+      {
+        "id": "mg1",
+        "name": "防火管理者の選任届出",
+        "law": "消防法第8条",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "所轄消防署",
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "hospital",
+          "welfare",
+          "theater",
+          "restaurant",
+          "apartment"
+        ],
+        "minOccupants": 30,
+        "details": "収容人員30人以上（特定防火対象物）または50人以上（非特定）の建物は防火管理者を選任し届出。消防計画の作成・届出も必要。",
+        "legalMinimum": "選任時届出"
+      },
+      {
+        "id": "mg2",
+        "name": "統括防火管理者の選任届出",
+        "law": "消防法第8条の2",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "所轄消防署",
+        "targetUsages": [
+          "commercial",
+          "hotel",
+          "hospital"
+        ],
+        "minFloors": 3,
+        "minOccupants": 30,
+        "details": "管理権原が分かれている複合用途防火対象物等で、高さ31m超または地上3階以上で収容人員30人以上の場合、統括防火管理者を選任。",
+        "legalMinimum": "選任時届出"
+      },
+      {
+        "id": "mg3",
+        "name": "防災管理者の選任届出",
+        "law": "消防法第36条",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "所轄消防署",
+        "minFloors": 11,
+        "minArea": 10000,
+        "details": "地上11階以上または延床面積10,000㎡以上等の大規模建築物は防災管理者を選任。地震その他の災害に対する自衛消防組織の設置も必要。",
+        "legalMinimum": "選任時届出"
+      },
+      {
+        "id": "mg4",
+        "name": "防災管理点検報告",
+        "law": "消防法第36条",
+        "cycle": "1年に1回",
+        "cycleType": "yearly",
+        "reportTo": "所轄消防署",
+        "minFloors": 11,
+        "minArea": 10000,
+        "details": "防災管理対象物は防災管理点検資格者による点検を年1回実施し、消防長等に報告。避難訓練の実施状況等を点検。",
+        "legalMinimum": "1年に1回"
+      },
+      {
+        "id": "mg5",
+        "name": "危険物保安監督者の選任届出",
+        "law": "消防法第13条",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "市町村長等",
+        "requiredEquipment": [
+          "hazardousMaterial"
+        ],
+        "details": "製造所等（危険物施設）において危険物保安監督者を選任し届出。危険物取扱者免状の保有が必要。",
+        "legalMinimum": "選任時届出"
+      },
+      {
+        "id": "mg6",
+        "name": "廃棄物管理責任者の設置",
+        "law": "廃棄物処理法・自治体条例",
+        "cycle": "設置時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "自治体（条例による）",
+        "minArea": 3000,
+        "details": "一定規模以上の建築物では廃棄物管理責任者の設置義務（自治体条例による）。事業系ごみの適正処理、減量・リサイクル計画の作成。",
+        "legalMinimum": "設置時届出（条例による）"
+      },
+      {
+        "id": "mg7",
+        "name": "電気主任技術者の選任届出",
+        "law": "電気事業法第43条",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "経済産業局",
+        "requiredEquipment": [
+          "cubicle"
+        ],
+        "details": "自家用電気工作物の設置者は電気主任技術者を選任し届出。外部委託承認制度あり（保安管理業務外部委託）。",
+        "legalMinimum": "選任時届出"
+      },
+      {
+        "id": "mg8",
+        "name": "建築物環境衛生管理技術者の選任届出",
+        "law": "ビル管法第6条",
+        "cycle": "選任時・変更時",
+        "cycleType": "asneeded",
+        "reportTo": "保健所",
+        "targetUsages": [
+          "office",
+          "commercial",
+          "hotel",
+          "theater"
+        ],
+        "minArea": 3000,
+        "details": "特定建築物（3,000㎡以上）の所有者等は建築物環境衛生管理技術者（ビル管理士）を選任し届出。複数兼任は原則不可。",
+        "legalMinimum": "選任時届出"
+      }
+    ],
+    "other": [
+      {
+        "id": "ot1",
+        "name": "ホルムアルデヒド測定",
+        "law": "ビル管法・シックハウス対策",
+        "cycle": "新築・大規模改修後（6〜9月）",
+        "cycleType": "asneeded",
+        "reportTo": "記録保存",
+        "details": "新築・大規模改修後の建築物でホルムアルデヒドを測定。基準値0.1mg/m³以下。6〜9月の間に測定し、基準超過時は再測定と是正措置。",
+        "legalMinimum": "新築・改修後1回"
+      },
+      {
+        "id": "ot2",
+        "name": "AED点検",
+        "law": "推奨管理基準（厚労省ガイドライン）",
+        "cycle": "毎日の表示確認/消耗品は有効期限管理",
+        "cycleType": "daily",
+        "reportTo": "記録保存",
+        "requiredEquipment": [
+          "aed"
+        ],
+        "details": "AEDのインジケータ（正常表示灯）を毎日確認。パッド、バッテリーは有効期限前に交換。設置場所の周知徹底。",
+        "legalMinimum": "定めなし",
+        "recommended": "毎日確認"
+      },
+      {
+        "id": "ot3",
+        "name": "産業廃棄物管理（マニフェスト）",
+        "law": "廃棄物処理法",
+        "cycle": "排出の都度/報告は年1回",
+        "cycleType": "yearly",
+        "reportTo": "都道府県知事",
+        "details": "産業廃棄物の排出時にマニフェスト（産業廃棄物管理票）を交付。電子マニフェストも可。年1回、交付等状況報告書を提出。",
+        "legalMinimum": "排出都度/報告年1回"
+      },
+      {
+        "id": "ot4",
+        "name": "メーター検針",
+        "law": "管理業務",
+        "cycle": "毎月",
+        "cycleType": "monthly",
+        "reportTo": "記録保存",
+        "details": "電気、ガス、水道等の各種メーター検針。テナントビルでは子メーター検針による按分計算。",
+        "legalMinimum": "定めなし",
+        "recommended": "毎月"
+      },
+      {
+        "id": "ot5",
+        "name": "巡回設備点検",
+        "law": "管理業務",
+        "cycle": "毎日〜毎週",
+        "cycleType": "daily",
+        "reportTo": "記録保存",
+        "details": "建物内外の巡回点検。設備の異常、水漏れ、照明切れ、建物損傷等の早期発見。日報による記録。",
+        "legalMinimum": "定めなし",
+        "recommended": "毎日〜毎週"
       }
     ]
   }

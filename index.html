@@ -272,6 +272,8 @@
     .tag-report { background: #faf5ff; color: #6b46c1; }
     .tag-warning { background: #fffaf0; color: #c05621; }
     .tag-local { background: #fef3c7; color: #92400e; }
+    .tag-legal-min { background: #fed7d7; color: #c53030; }
+    .tag-recommended { background: #c6f6d5; color: #22543d; }
 
     .update-section { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
 
@@ -576,6 +578,12 @@
               <button class="tab" data-tab="environment">環境関連法</button>
               <button class="tab" data-tab="parking">駐車場法</button>
               <button class="tab" data-tab="asbestos">石綿関連</button>
+              <button class="tab" data-tab="facility">設備保守</button>
+              <button class="tab" data-tab="hvac">空調・換気</button>
+              <button class="tab" data-tab="plumbing">給排水</button>
+              <button class="tab" data-tab="cleaning">清掃</button>
+              <button class="tab" data-tab="manager">管理者</button>
+              <button class="tab" data-tab="other">その他</button>
             </div>
 
             <div class="summary-grid">
@@ -663,7 +671,8 @@
       },
       '電気設備': {
         cubicle: 'キュービクル（高圧受電）',
-        generator: '非常用発電機'
+        generator: '非常用発電機',
+        solarPanel: '太陽光発電設備'
       },
       '消防設備': {
         sprinkler: 'スプリンクラー',
@@ -676,33 +685,58 @@
       '給排水・衛生設備': {
         watertank: '貯水槽（10㎥超）', 
         septic: '浄化槽',
-        boiler: 'ボイラー'
+        boiler: 'ボイラー（蒸気・温水）',
+        waterHeaterBoiler: '給湯ボイラー',
+        electricWaterHeater: '電気温水器',
+        pressureBoostPump: '加圧給水ポンプ',
+        drainagePump: '湧水・雑排水ポンプ',
+        sewagePump: '汚水ポンプ',
+        drainageTank: '排水槽（汚水槽・雑排水槽）',
+        rainwaterDrain: '雨水桝'
       },
-      '空調・冷凍設備': {
+      '空調・換気設備': {
         aircon: '中央空調設備（ビル管法対象）',
         coolingTower: '冷却塔',
+        ahu: 'AHU・外調機',
         airconCommercialSmall: '業務用エアコン（7.5kW未満）',
         airconCommercialMedium: '業務用エアコン（7.5kW以上50kW未満）',
         airconCommercialLarge: '業務用エアコン（50kW以上）',
         refrigeratorCommercialSmall: '業務用冷凍冷蔵機器（7.5kW未満）',
         refrigeratorCommercialLarge: '業務用冷凍冷蔵機器（7.5kW以上）',
-        refrigerator: '冷凍設備（高圧ガス法対象）'
+        refrigerator: '冷凍設備（高圧ガス法対象）',
+        ventilationFan: '換気設備（シロッコファン等）',
+        heatExchanger: '全熱交換器'
       },
       'ガス設備': {
         highPressureGas: '高圧ガス製造設備',
         lpGas: 'LPガス設備',
-        cityGas: '都市ガス設備'
+        cityGas: '都市ガス設備',
+        undergroundTank: '地下タンク（危険物）',
+        hazardousMaterial: '危険物貯蔵・取扱施設'
       },
       '環境関連施設': {
         smokeEmitter: 'ばい煙発生施設（ボイラー等）',
         wastewaterFacility: '特定施設（排水）'
       },
-      '駐車場設備': {
+      '建築・外構設備': {
+        shutter: 'シャッター設備',
+        automaticDoor: '自動ドア設備',
         mechanicalParking: '機械式駐車場',
-        parkingLot: '路外駐車場（500㎡以上）'
+        parkingLot: '路外駐車場（500㎡以上）',
+        parkingGate: '車路管制設備（ゲート等）',
+        outdoorSign: '屋外広告物',
+        greenery: '植栽'
+      },
+      '監視・通信設備': {
+        centralMonitoring: '中央監視設備',
+        accessControl: '入退館管理設備',
+        securityCamera: 'ITV（監視カメラ）設備',
+        tvSystem: 'テレビ共聴設備',
+        phoneSystem: '電話設備'
       },
       'その他': {
-        asbestosContaining: '石綿含有建材（吹付け材等）'
+        asbestosContaining: '石綿含有建材（吹付け材等）',
+        aed: 'AED（自動体外式除細動器）'
       }
     };
     
@@ -1035,10 +1069,10 @@
 
     function determineInspections(data, localStd) {
       if (!appData || !appData.inspectionTypes) {
-        return { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [] };
+        return { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [], facility: [], hvac: [], plumbing: [], cleaning: [], manager: [], other: [] };
       }
 
-      const results = { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [] };
+      const results = { building: [], fire: [], electric: [], water: [], gas: [], environment: [], parking: [], asbestos: [], facility: [], hvac: [], plumbing: [], cleaning: [], manager: [], other: [] };
 
       for (const [category, inspections] of Object.entries(appData.inspectionTypes)) {
         for (const inspection of inspections) {
@@ -1197,7 +1231,13 @@
         gas: { name: 'ガス関連法（高圧ガス・LP・都市ガス）', icon: '🔵' },
         environment: { name: '環境関連法（フロン・大気・水質）', icon: '🌿' },
         parking: { name: '駐車場法', icon: '🅿️' },
-        asbestos: { name: '石綿障害予防規則', icon: '⚠️' }
+        asbestos: { name: '石綿障害予防規則', icon: '⚠️' },
+        facility: { name: '設備保守点検', icon: '🔧' },
+        hvac: { name: '空調・換気設備', icon: '❄️' },
+        plumbing: { name: '給排水設備', icon: '🚿' },
+        cleaning: { name: '清掃', icon: '🧹' },
+        manager: { name: '管理者・責任者', icon: '👤' },
+        other: { name: 'その他', icon: '📋' }
       };
 
       let html = '';
@@ -1209,6 +1249,9 @@
           <h4>${categoryNames[category].icon} ${categoryNames[category].name}</h4>`;
 
         for (const item of items) {
+          const legalTag = item.legalMinimum ? `<span class="tag tag-legal-min">⚖️ 法定: ${item.legalMinimum}</span>` : '';
+          const recommendedTag = item.recommended ? `<span class="tag tag-recommended">💡 推奨: ${item.recommended}</span>` : '';
+          
           html += `
             <div class="inspection-item">
               <div class="inspection-name">${item.name}</div>
@@ -1216,6 +1259,8 @@
               <div class="inspection-meta">
                 <span class="tag tag-law">📖 ${item.law}</span>
                 <span class="tag tag-cycle">🔄 ${item.cycle}</span>
+                ${legalTag}
+                ${recommendedTag}
                 <span class="tag tag-report">📤 ${item.reportTo}</span>
                 ${item.updated ? `<span class="tag tag-warning">⚠️ ${item.updated}</span>` : ''}
                 ${item.isLocal ? `<span class="tag tag-local">📍 自治体基準</span>` : ''}
@@ -1274,7 +1319,7 @@
       csv += '適用基準,' + (window.currentLocalStd ? window.currentLocalStd.name : '国の基準') + '\n';
       csv += 'データバージョン,' + appData.version + '\n';
       csv += '\n';
-      csv += 'カテゴリ,点検名,根拠法令,点検周期,報告先,詳細,備考\n';
+      csv += 'カテゴリ,点検名,根拠法令,点検周期,法定最低,推奨,報告先,詳細,備考\n';
 
       const categoryNames = { 
         building: '建築基準法', 
@@ -1284,12 +1329,20 @@
         gas: 'ガス関連法',
         environment: '環境関連法',
         parking: '駐車場法',
-        asbestos: '石綿関連'
+        asbestos: '石綿関連',
+        facility: '設備保守点検',
+        hvac: '空調・換気設備',
+        plumbing: '給排水設備',
+        cleaning: '清掃',
+        manager: '管理者・責任者',
+        other: 'その他'
       };
 
       for (const [category, items] of Object.entries(window.currentResults)) {
         for (const item of items) {
-          csv += `"${categoryNames[category]}","${item.name}","${item.law}","${item.cycle}","${item.reportTo}","${item.details}","${item.updated || ''}"\n`;
+          const legalMin = item.legalMinimum || '-';
+          const recommended = item.recommended || '-';
+          csv += `"${categoryNames[category]}","${item.name}","${item.law}","${item.cycle}","${legalMin}","${recommended}","${item.reportTo}","${item.details}","${item.updated || ''}"\n`;
         }
       }
 
