@@ -153,33 +153,118 @@
 
     .detected-location.show { display: flex; align-items: center; gap: 0.5rem; }
 
-    .checkbox-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .equipment-category, .usage-category {
-      grid-column: 1 / -1;
-      margin-bottom: 0.75rem;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     .equipment-category-title, .usage-category-title {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--primary);
       padding: 0.5rem 0.75rem;
-      background: linear-gradient(90deg, rgba(26, 54, 93, 0.1) 0%, transparent 100%);
-      border-left: 3px solid var(--primary);
-      margin-bottom: 0.5rem;
+      background: var(--bg);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .equipment-category-title:hover, .usage-category-title:hover {
+      background: var(--border);
+    }
+
+    .equipment-category-title::after, .usage-category-title::after {
+      content: '▼';
+      font-size: 0.6rem;
+      transition: transform 0.2s;
+    }
+
+    .equipment-category.collapsed .equipment-category-title::after,
+    .usage-category.collapsed .usage-category-title::after {
+      transform: rotate(-90deg);
     }
 
     .equipment-category-items, .usage-category-items {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.5rem;
+      background: white;
+    }
+
+    .equipment-category.collapsed .equipment-category-items,
+    .usage-category.collapsed .usage-category-items {
+      display: none;
+    }
+
+    .checkbox-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.6rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .checkbox-item:hover {
+      background: var(--border);
+      border-color: var(--primary-light);
+    }
+
+    .checkbox-item.selected {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      display: none;
+    }
+
+    .checkbox-item span {
+      line-height: 1.2;
+    }
+
+    .category-toggle-all {
+      display: flex;
       gap: 0.5rem;
-      padding-left: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-toggle-btn {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+
+    .category-toggle-btn:hover {
+      background: var(--border);
     }
 
     @media (max-width: 600px) {
-      .equipment-category-items, .usage-category-items {
-        grid-template-columns: 1fr;
+      .checkbox-item {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+      }
+      
+      .equipment-category-title, .usage-category-title {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
       }
     }
 
@@ -998,11 +1083,16 @@
 
     function generateUsageCheckboxes() {
       const container = document.getElementById('usageCheckboxes');
-      let html = '';
+      let html = `
+        <div class="category-toggle-all">
+          <button type="button" class="category-toggle-btn" onclick="toggleAllCategories('usage', false)">▼ 全て展開</button>
+          <button type="button" class="category-toggle-btn" onclick="toggleAllCategories('usage', true)">▶ 全て折りたたむ</button>
+        </div>
+      `;
       
       for (const [categoryName, items] of Object.entries(usageCategories)) {
-        html += `<div class="usage-category">
-          <div class="usage-category-title">${categoryName}</div>
+        html += `<div class="usage-category collapsed">
+          <div class="usage-category-title" onclick="this.parentElement.classList.toggle('collapsed')">${categoryName}</div>
           <div class="usage-category-items">`;
         
         for (const [value, label] of Object.entries(items)) {
@@ -1018,15 +1108,46 @@
       }
       
       container.innerHTML = html;
+      
+      // チェックボックスの状態とselectedクラスを同期
+      container.querySelectorAll('.checkbox-item').forEach(item => {
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        item.addEventListener('click', (e) => {
+          if (e.target !== checkbox) {
+            checkbox.checked = !checkbox.checked;
+          }
+          item.classList.toggle('selected', checkbox.checked);
+          // 選択したらカテゴリを展開
+          if (checkbox.checked) {
+            item.closest('.usage-category').classList.remove('collapsed');
+          }
+        });
+      });
+    }
+    
+    function toggleAllCategories(type, collapse) {
+      const selector = type === 'usage' ? '.usage-category' : '.equipment-category';
+      document.querySelectorAll(selector).forEach(cat => {
+        if (collapse) {
+          cat.classList.add('collapsed');
+        } else {
+          cat.classList.remove('collapsed');
+        }
+      });
     }
 
     function generateEquipmentCheckboxes() {
       const container = document.getElementById('equipmentCheckboxes');
-      let html = '';
+      let html = `
+        <div class="category-toggle-all">
+          <button type="button" class="category-toggle-btn" onclick="toggleAllCategories('equipment', false)">▼ 全て展開</button>
+          <button type="button" class="category-toggle-btn" onclick="toggleAllCategories('equipment', true)">▶ 全て折りたたむ</button>
+        </div>
+      `;
       
       for (const [categoryName, items] of Object.entries(equipmentCategories)) {
-        html += `<div class="equipment-category">
-          <div class="equipment-category-title">${categoryName}</div>
+        html += `<div class="equipment-category collapsed">
+          <div class="equipment-category-title" onclick="this.parentElement.classList.toggle('collapsed')">${categoryName}</div>
           <div class="equipment-category-items">`;
         
         for (const [value, label] of Object.entries(items)) {
@@ -1042,6 +1163,21 @@
       }
       
       container.innerHTML = html;
+      
+      // チェックボックスの状態とselectedクラスを同期
+      container.querySelectorAll('.checkbox-item').forEach(item => {
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        item.addEventListener('click', (e) => {
+          if (e.target !== checkbox) {
+            checkbox.checked = !checkbox.checked;
+          }
+          item.classList.toggle('selected', checkbox.checked);
+          // 選択したらカテゴリを展開
+          if (checkbox.checked) {
+            item.closest('.equipment-category').classList.remove('collapsed');
+          }
+        });
+      });
     }
 
     // ===========================================
