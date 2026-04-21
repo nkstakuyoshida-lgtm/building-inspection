@@ -155,12 +155,12 @@
 
     .checkbox-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 
-    .equipment-category {
+    .equipment-category, .usage-category {
       grid-column: 1 / -1;
       margin-bottom: 0.75rem;
     }
 
-    .equipment-category-title {
+    .equipment-category-title, .usage-category-title {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--primary);
@@ -170,7 +170,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .equipment-category-items {
+    .equipment-category-items, .usage-category-items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
@@ -178,7 +178,7 @@
     }
 
     @media (max-width: 600px) {
-      .equipment-category-items {
+      .equipment-category-items, .usage-category-items {
         grid-template-columns: 1fr;
       }
     }
@@ -656,12 +656,92 @@
       miyazaki: '宮崎県', kagoshima: '鹿児島県', okinawa: '沖縄県'
     };
 
-    // 用途のラベル
-    const usageLabels = {
-      office: '事務所・オフィス', commercial: '店舗・商業施設', hotel: 'ホテル・旅館',
-      hospital: '病院・診療所', welfare: '福祉施設・老健', apartment: '共同住宅・マンション',
-      factory: '工場・倉庫', school: '学校・教育施設', theater: '劇場・映画館', restaurant: '飲食店'
+    // 用途のラベル（カテゴリ分け - 建築基準法施行令別表第1・消防法施行令別表第1に基づく）
+    const usageCategories = {
+      '興行場・集会場等': {
+        theater: '劇場・映画館・演芸場',
+        assembly: '公会堂・集会場',
+        exhibition: '展示場',
+        casino: '遊技場（パチンコ・ゲームセンター等）',
+        cabaret: 'キャバレー・ナイトクラブ・ダンスホール',
+        bar: 'バー・スナック',
+        karaoke: 'カラオケボックス'
+      },
+      '宿泊・飲食施設': {
+        hotel: 'ホテル・旅館',
+        ryokan: '簡易宿所・民泊',
+        restaurant: '飲食店',
+        cafe: '喫茶店'
+      },
+      '物販・サービス店舗': {
+        commercial: '百貨店・大型店舗',
+        retail: '物販店舗（小売店）',
+        market: '卸売市場',
+        publicBath: '公衆浴場（銭湯・スーパー銭湯）',
+        beautyShop: '理容店・美容院',
+        laundromat: 'コインランドリー',
+        serviceShop: 'その他サービス店舗'
+      },
+      '事務所・官公署': {
+        office: '事務所・オフィスビル',
+        governmentMain: '官公署（本庁舎）',
+        governmentBranch: '官公署（支庁・支所・出張所）',
+        bank: '銀行・金融機関'
+      },
+      '医療・福祉施設': {
+        hospitalLarge: '病院（20床以上）',
+        clinic: '診療所・クリニック',
+        dentalClinic: '歯科診療所',
+        nursingHome: '特別養護老人ホーム',
+        careHome: '有料老人ホーム・サ高住',
+        dayService: 'デイサービス・通所介護',
+        groupHome: 'グループホーム',
+        disabilityFacility: '障害者支援施設',
+        childWelfare: '児童福祉施設（保育所除く）',
+        maternityHome: '助産所'
+      },
+      '教育・文化施設': {
+        schoolElementary: '小学校・中学校・義務教育学校',
+        schoolHigh: '高等学校・中等教育学校',
+        university: '大学・高等専門学校',
+        specialSchool: '特別支援学校',
+        kindergarten: '幼稚園',
+        nursery: '保育所・認定こども園',
+        cram: '学習塾・各種学校・専修学校',
+        library: '図書館',
+        museum: '博物館・美術館',
+        gym: '体育館・スポーツ施設',
+        pool: '水泳場・プール'
+      },
+      '住宅・宿舎': {
+        apartment: '共同住宅・マンション',
+        dormitory: '寄宿舎・寮',
+        boarding: '下宿'
+      },
+      '工場・倉庫・車庫': {
+        factory: '工場',
+        warehouse: '倉庫',
+        parking: '自動車車庫・駐車場',
+        hangar: '格納庫（飛行機等）',
+        garage: '自動車修理工場'
+      },
+      '危険物・特殊施設': {
+        gasStation: 'ガソリンスタンド',
+        dangerousGoods: '危険物貯蔵・処理施設',
+        crematory: '火葬場',
+        slaughterhouse: 'と畜場',
+        wasteFacility: '汚物処理場・ごみ処理場'
+      },
+      'その他': {
+        temple: '神社・寺院・教会',
+        station: '駅舎・バスターミナル',
+        airport: '空港ターミナル',
+        other: 'その他の施設'
+      }
     };
+
+    // フラットな用途ラベル（後方互換性用）
+    const usageLabels = Object.values(usageCategories).reduce((acc, cat) => ({ ...acc, ...cat }), {});
 
     // 設備のラベル（カテゴリ分け）
     const equipmentCategories = {
@@ -919,14 +999,24 @@
     function generateUsageCheckboxes() {
       const container = document.getElementById('usageCheckboxes');
       let html = '';
-      for (const [value, label] of Object.entries(usageLabels)) {
-        html += `
-          <label class="checkbox-item">
-            <input type="checkbox" name="usage" value="${value}">
-            <span>${label}</span>
-          </label>
-        `;
+      
+      for (const [categoryName, items] of Object.entries(usageCategories)) {
+        html += `<div class="usage-category">
+          <div class="usage-category-title">${categoryName}</div>
+          <div class="usage-category-items">`;
+        
+        for (const [value, label] of Object.entries(items)) {
+          html += `
+            <label class="checkbox-item">
+              <input type="checkbox" name="usage" value="${value}">
+              <span>${label}</span>
+            </label>
+          `;
+        }
+        
+        html += `</div></div>`;
       }
+      
       container.innerHTML = html;
     }
 
