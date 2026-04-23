@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>建物管理台帳 - 法定点検判定システム v4</title>
+  <title>法定点検判定システム</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -492,7 +492,7 @@
 </head>
 <body>
   <header>
-    <h1>建物管理台帳 法定点検判定システム</h1>
+    <h1>法定点検判定システム</h1>
     <p class="subtitle">建物の情報を入力すると、必要な法定点検が自動で一覧表示されます（自治体別基準対応）</p>
     <div class="data-status">
       <span id="dataStatusDot" class="data-status-dot loading"></span>
@@ -706,7 +706,7 @@
 
   <footer>
     <p>※本システムは法定点検の目安を示すものです。実際の点検義務は建物の所在地、用途、規模などにより異なりますので、所轄の行政機関にご確認ください。</p>
-    <p style="margin-top: 0.5rem;">© 2026 建物管理台帳システム v4.0（全法令対応版）</p>
+    <p style="margin-top: 0.5rem;">© 2026 法定点検判定システム v4.0</p>
   </footer>
 
   <script>
@@ -1092,15 +1092,15 @@
       
       for (const [categoryName, items] of Object.entries(usageCategories)) {
         html += `<div class="usage-category collapsed">
-          <div class="usage-category-title" onclick="this.parentElement.classList.toggle('collapsed')">${categoryName}</div>
+          <div class="usage-category-title">${categoryName}</div>
           <div class="usage-category-items">`;
         
         for (const [value, label] of Object.entries(items)) {
           html += `
-            <label class="checkbox-item">
-              <input type="checkbox" name="usage" value="${value}">
+            <div class="checkbox-item" data-value="${value}">
+              <input type="checkbox" name="usage" value="${value}" id="usage_${value}">
               <span>${label}</span>
-            </label>
+            </div>
           `;
         }
         
@@ -1109,15 +1109,22 @@
       
       container.innerHTML = html;
       
-      // チェックボックスの状態とselectedクラスを同期
+      // カテゴリタイトルのクリックで折りたたみ
+      container.querySelectorAll('.usage-category-title').forEach(title => {
+        title.addEventListener('click', (e) => {
+          e.stopPropagation();
+          title.parentElement.classList.toggle('collapsed');
+        });
+      });
+      
+      // チェックボックスアイテムのクリック処理
       container.querySelectorAll('.checkbox-item').forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
         item.addEventListener('click', (e) => {
-          if (e.target !== checkbox) {
-            checkbox.checked = !checkbox.checked;
-          }
+          e.stopPropagation();
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
           item.classList.toggle('selected', checkbox.checked);
-          // 選択したらカテゴリを展開
+          // 選択したらカテゴリを展開状態に維持
           if (checkbox.checked) {
             item.closest('.usage-category').classList.remove('collapsed');
           }
@@ -1147,15 +1154,15 @@
       
       for (const [categoryName, items] of Object.entries(equipmentCategories)) {
         html += `<div class="equipment-category collapsed">
-          <div class="equipment-category-title" onclick="this.parentElement.classList.toggle('collapsed')">${categoryName}</div>
+          <div class="equipment-category-title">${categoryName}</div>
           <div class="equipment-category-items">`;
         
         for (const [value, label] of Object.entries(items)) {
           html += `
-            <label class="checkbox-item">
-              <input type="checkbox" name="equipment" value="${value}">
+            <div class="checkbox-item" data-value="${value}">
+              <input type="checkbox" name="equipment" value="${value}" id="equip_${value}">
               <span>${label}</span>
-            </label>
+            </div>
           `;
         }
         
@@ -1164,15 +1171,22 @@
       
       container.innerHTML = html;
       
-      // チェックボックスの状態とselectedクラスを同期
+      // カテゴリタイトルのクリックで折りたたみ
+      container.querySelectorAll('.equipment-category-title').forEach(title => {
+        title.addEventListener('click', (e) => {
+          e.stopPropagation();
+          title.parentElement.classList.toggle('collapsed');
+        });
+      });
+      
+      // チェックボックスアイテムのクリック処理
       container.querySelectorAll('.checkbox-item').forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
         item.addEventListener('click', (e) => {
-          if (e.target !== checkbox) {
-            checkbox.checked = !checkbox.checked;
-          }
+          e.stopPropagation();
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
           item.classList.toggle('selected', checkbox.checked);
-          // 選択したらカテゴリを展開
+          // 選択したらカテゴリを展開状態に維持
           if (checkbox.checked) {
             item.closest('.equipment-category').classList.remove('collapsed');
           }
