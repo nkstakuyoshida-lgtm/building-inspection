@@ -1248,6 +1248,14 @@
       { pattern: /沖縄県/, value: 'okinawa' }
     ];
 
+    // 対応済み政令指定都市のマッピング
+    const designatedCityMapping = {
+      '新潟市': 'niigata_city',
+      'さいたま市': 'saitama_city',
+      '福岡市': 'fukuoka_city',
+      '熊本市': 'kumamoto_city'
+    };
+
     function detectPrefecture() {
       const address = document.getElementById('address').value.trim();
       if (!address) {
@@ -1288,10 +1296,20 @@
     // 点検判定ロジック
     // ===========================================
     
-    function getLocalStandard(prefectureKey) {
+    function getLocalStandard(prefectureKey, cityName) {
       if (!appData || !appData.prefectureStandards) {
         return null;
       }
+      
+      // 政令指定都市の判定（対応済みの市）
+      if (cityName && designatedCityMapping[cityName]) {
+        const cityKey = designatedCityMapping[cityName];
+        if (appData.prefectureStandards[cityKey]) {
+          return appData.prefectureStandards[cityKey];
+        }
+      }
+      
+      // 都道府県の基準を適用
       return appData.prefectureStandards[prefectureKey] || appData.prefectureStandards['default'];
     }
 
@@ -1430,7 +1448,7 @@
       document.getElementById('loadingState').classList.remove('hidden');
 
       setTimeout(() => {
-        const localStd = getLocalStandard(data.prefecture);
+        const localStd = getLocalStandard(data.prefecture, data.city);
         const results = determineInspections(data, localStd);
         displayResults(results, data, localStd);
       }, 600);

@@ -1,7 +1,11 @@
 {
-  "version": "2026.04.14.4",
+  "version": "2026.04.14.5",
   "lastUpdated": "2026-04-14",
   "updateHistory": [
+    {
+      "date": "2026-04-14",
+      "description": "政令指定都市（新潟市・さいたま市・福岡市・熊本市）の独自基準を追加。その他の政令指定都市・中核市については注意喚起メッセージを表示"
+    },
     {
       "date": "2026-04-14",
       "description": "建物用途区分を法令（建築基準法施行令別表第1・消防法施行令別表第1）に基づき大幅拡充。体育施設、官公署支庁等を追加"
@@ -62,7 +66,7 @@
     "hokkaido": {
       "name": "北海道",
       "authority": "北海道（札幌市は独自基準）",
-      "note": "北海道の基準を適用。札幌市内の建物は札幌市の基準を確認してください。",
+      "note": "北海道の基準を適用。札幌市（政令指定都市）・旭川市・函館市（中核市）内の建物は各市の基準を確認してください。本システムでは未対応です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -340,12 +344,19 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "札幌市"
+      ],
+      "coreCities": [
+        "旭川市",
+        "函館市"
+      ]
     },
     "tokyo": {
       "name": "東京都",
       "authority": "東京都都市整備局",
-      "note": "東京都建築安全条例に基づく基準を適用。特別区および市によってさらに細かい基準がある場合があります。",
+      "note": "東京都建築安全条例に基づく基準を適用。特別区（23区）は東京都の基準が適用されます。八王子市（中核市）内の建物は市の基準を確認してください。",
       "lastUpdated": "2025-07-01",
       "specificBuilding": {
         "theater": {
@@ -625,12 +636,15 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "coreCities": [
+        "八王子市"
+      ]
     },
     "kanagawa": {
       "name": "神奈川県",
       "authority": "神奈川県（横浜市・川崎市・相模原市は独自基準）",
-      "note": "神奈川県の基準を適用。横浜市・川崎市・相模原市内の建物は各市の基準を確認してください。",
+      "note": "神奈川県の基準を適用。横浜市・川崎市・相模原市（政令指定都市）内の建物は各市の基準を確認してください。本システムでは未対応です。横須賀市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -908,12 +922,20 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "横浜市",
+        "川崎市",
+        "相模原市"
+      ],
+      "coreCities": [
+        "横須賀市"
+      ]
     },
     "saitama": {
       "name": "埼玉県",
       "authority": "埼玉県（さいたま市は独自基準）",
-      "note": "埼玉県の基準を適用。さいたま市内の建物はさいたま市の基準を確認してください。",
+      "note": "埼玉県の基準を適用。さいたま市（政令指定都市）内の建物はさいたま市の基準が適用されます（本システム対応済み）。川越市・越谷市・川口市（中核市）内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -1191,12 +1213,20 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "designatedCities": [
+        "さいたま市"
+      ],
+      "coreCities": [
+        "川越市",
+        "越谷市",
+        "川口市"
+      ]
     },
     "chiba": {
       "name": "千葉県",
       "authority": "千葉県（千葉市・船橋市・柏市は独自基準）",
-      "note": "千葉県の基準を適用。千葉市・船橋市・柏市内の建物は各市の基準を確認してください。",
+      "note": "千葉県の基準を適用。千葉市（政令指定都市）内の建物は市の基準を確認してください。本システムでは未対応です。船橋市・柏市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -1474,12 +1504,19 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "千葉市"
+      ],
+      "coreCities": [
+        "船橋市",
+        "柏市"
+      ]
     },
     "osaka": {
       "name": "大阪府",
       "authority": "大阪府（大阪市・堺市・東大阪市等は独自基準）",
-      "note": "大阪府の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "note": "大阪府の基準を適用。大阪市・堺市（政令指定都市）内の建物は各市の基準を確認してください。本システムでは未対応です。東大阪市・高槻市・枚方市・豊中市・八尾市・寝屋川市・吹田市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -1759,12 +1796,25 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "大阪市",
+        "堺市"
+      ],
+      "coreCities": [
+        "東大阪市",
+        "高槻市",
+        "枚方市",
+        "豊中市",
+        "八尾市",
+        "寝屋川市",
+        "吹田市"
+      ]
     },
     "aichi": {
       "name": "愛知県",
       "authority": "愛知県（名古屋市は独自基準）",
-      "note": "愛知県の基準を適用。名古屋市内の建物は名古屋市の基準を確認してください。",
+      "note": "愛知県の基準を適用。名古屋市（政令指定都市）内の建物は市の基準を確認してください。本システムでは未対応です。豊橋市・岡崎市・豊田市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -2042,12 +2092,20 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "名古屋市"
+      ],
+      "coreCities": [
+        "豊橋市",
+        "岡崎市",
+        "豊田市"
+      ]
     },
     "kyoto": {
       "name": "京都府",
       "authority": "京都府（京都市は独自基準）",
-      "note": "京都府の基準を適用。京都市内の建物は京都市の基準を確認してください。",
+      "note": "京都府の基準を適用。京都市（政令指定都市）内の建物は市の基準を確認してください。本システムでは未対応です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -2325,12 +2383,15 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "京都市"
+      ]
     },
     "hyogo": {
       "name": "兵庫県",
       "authority": "兵庫県（神戸市・姫路市・尼崎市・西宮市は独自基準）",
-      "note": "兵庫県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "note": "兵庫県の基準を適用。神戸市（政令指定都市）内の建物は市の基準を確認してください。本システムでは未対応です。姫路市・尼崎市・西宮市・明石市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -2608,12 +2669,21 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "神戸市"
+      ],
+      "coreCities": [
+        "姫路市",
+        "尼崎市",
+        "西宮市",
+        "明石市"
+      ]
     },
     "hiroshima": {
       "name": "広島県",
       "authority": "広島県（広島市・福山市・呉市は独自基準）",
-      "note": "広島県の基準を適用。政令市・中核市内の建物は各市の基準を確認してください。",
+      "note": "広島県の基準を適用。広島市（政令指定都市）内の建物は市の基準を確認してください。本システムでは未対応です。福山市・呉市（中核市）も同様です。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -2891,12 +2961,19 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "nonSupportedDesignatedCities": [
+        "広島市"
+      ],
+      "coreCities": [
+        "福山市",
+        "呉市"
+      ]
     },
     "fukuoka": {
       "name": "福岡県",
       "authority": "福岡県（福岡市・北九州市・久留米市は独自基準）",
-      "note": "福岡県の基準を適用。福岡市・北九州市・久留米市内の建物は各市の基準を確認してください。",
+      "note": "福岡県の基準を適用。福岡市（政令指定都市）内の建物は福岡市の基準が適用されます（本システム対応済み）。北九州市（政令指定都市）・久留米市（中核市）内の建物は各市の基準を確認してください。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -3174,12 +3251,21 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "designatedCities": [
+        "福岡市"
+      ],
+      "nonSupportedDesignatedCities": [
+        "北九州市"
+      ],
+      "coreCities": [
+        "久留米市"
+      ]
     },
     "niigata": {
       "name": "新潟県",
       "authority": "新潟県（新潟市は独自基準）",
-      "note": "新潟県の基準を適用。新潟市内の建物は新潟市の基準を確認してください。",
+      "note": "新潟県の基準を適用。新潟市（政令指定都市）内の建物は新潟市の基準が適用されます（本システム対応済み）。",
       "lastUpdated": "2024-04-01",
       "specificBuilding": {
         "theater": {
@@ -3457,13 +3543,1443 @@
           "minArea": 2000,
           "note": "空港"
         }
-      }
+      },
+      "designatedCities": [
+        "新潟市"
+      ]
     },
     "default": {
       "name": "国の基準（政令）",
       "authority": "国土交通省",
       "note": "国が定める基準（建築基準法施行令）を適用。各自治体で追加の対象建築物が指定されている場合があります。詳細は所轄の特定行政庁にお問い合わせください。",
       "lastUpdated": "2025-07-01",
+      "specificBuilding": {
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "劇場・映画館・演芸場"
+        },
+        "assembly": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公会堂・集会場"
+        },
+        "exhibition": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "展示場"
+        },
+        "casino": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "遊技場"
+        },
+        "cabaret": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "キャバレー等"
+        },
+        "bar": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "バー・スナック"
+        },
+        "karaoke": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "カラオケボックス"
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "ホテル・旅館"
+        },
+        "ryokan": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "簡易宿所"
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "飲食店"
+        },
+        "cafe": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "喫茶店"
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "百貨店・大型店舗"
+        },
+        "retail": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "物販店舗"
+        },
+        "market": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "卸売市場"
+        },
+        "publicBath": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公衆浴場"
+        },
+        "beautyShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "理容・美容"
+        },
+        "laundromat": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "コインランドリー"
+        },
+        "serviceShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "サービス店舗"
+        },
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "事務所"
+        },
+        "governmentMain": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "官公署本庁舎"
+        },
+        "governmentBranch": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "支庁・支所"
+        },
+        "bank": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "銀行"
+        },
+        "hospitalLarge": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20,
+          "note": "病院"
+        },
+        "clinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "診療所"
+        },
+        "dentalClinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "歯科"
+        },
+        "nursingHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "特養"
+        },
+        "careHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "有料老人ホーム"
+        },
+        "dayService": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "デイサービス"
+        },
+        "groupHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "グループホーム"
+        },
+        "disabilityFacility": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "障害者施設"
+        },
+        "childWelfare": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "児童福祉施設"
+        },
+        "maternityHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "助産所"
+        },
+        "schoolElementary": {
+          "minArea": 8000,
+          "note": "小中学校"
+        },
+        "schoolHigh": {
+          "minArea": 8000,
+          "note": "高校"
+        },
+        "university": {
+          "minArea": 8000,
+          "note": "大学"
+        },
+        "specialSchool": {
+          "minArea": 8000,
+          "note": "特別支援学校"
+        },
+        "kindergarten": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "幼稚園"
+        },
+        "nursery": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "保育所"
+        },
+        "cram": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "学習塾"
+        },
+        "library": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "図書館"
+        },
+        "museum": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "博物館"
+        },
+        "gym": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "体育館"
+        },
+        "pool": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "プール"
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "共同住宅"
+        },
+        "dormitory": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "寄宿舎"
+        },
+        "boarding": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "下宿"
+        },
+        "factory": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "工場"
+        },
+        "warehouse": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "倉庫"
+        },
+        "parking": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "駐車場"
+        },
+        "hangar": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "格納庫"
+        },
+        "garage": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "修理工場"
+        },
+        "gasStation": {
+          "minArea": 500,
+          "note": "ガソリンスタンド"
+        },
+        "dangerousGoods": {
+          "minArea": 500,
+          "note": "危険物施設"
+        },
+        "temple": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "寺社"
+        },
+        "station": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "駅舎"
+        },
+        "airport": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "空港"
+        }
+      }
+    },
+    "niigata_city": {
+      "name": "新潟市",
+      "authority": "新潟市建築部建築行政課",
+      "type": "designated_city",
+      "parentPrefecture": "niigata",
+      "note": "新潟市は政令指定都市のため、独自の特定建築物基準を適用します。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "劇場・映画館・演芸場"
+        },
+        "assembly": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公会堂・集会場"
+        },
+        "exhibition": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "展示場"
+        },
+        "casino": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "遊技場"
+        },
+        "cabaret": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "キャバレー等"
+        },
+        "bar": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "バー・スナック"
+        },
+        "karaoke": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "カラオケボックス"
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "ホテル・旅館"
+        },
+        "ryokan": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "簡易宿所"
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "飲食店"
+        },
+        "cafe": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "喫茶店"
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "店舗"
+        },
+        "retail": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "物販店舗"
+        },
+        "market": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "卸売市場"
+        },
+        "publicBath": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公衆浴場"
+        },
+        "beautyShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "理容・美容"
+        },
+        "laundromat": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "コインランドリー"
+        },
+        "serviceShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "サービス店舗"
+        },
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "事務所"
+        },
+        "governmentMain": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "官公署本庁舎"
+        },
+        "governmentBranch": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "支庁・支所"
+        },
+        "bank": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "銀行"
+        },
+        "hospitalLarge": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20,
+          "note": "病院"
+        },
+        "clinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "診療所"
+        },
+        "dentalClinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "歯科"
+        },
+        "nursingHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "特養"
+        },
+        "careHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "有料老人ホーム"
+        },
+        "dayService": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "デイサービス"
+        },
+        "groupHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "グループホーム"
+        },
+        "disabilityFacility": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "障害者施設"
+        },
+        "childWelfare": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "児童福祉施設"
+        },
+        "maternityHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "助産所"
+        },
+        "schoolElementary": {
+          "minArea": 8000,
+          "note": "小中学校"
+        },
+        "schoolHigh": {
+          "minArea": 8000,
+          "note": "高校"
+        },
+        "university": {
+          "minArea": 8000,
+          "note": "大学"
+        },
+        "specialSchool": {
+          "minArea": 8000,
+          "note": "特別支援学校"
+        },
+        "kindergarten": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "幼稚園"
+        },
+        "nursery": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "保育所"
+        },
+        "cram": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "学習塾"
+        },
+        "library": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "図書館"
+        },
+        "museum": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "博物館"
+        },
+        "gym": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "体育館"
+        },
+        "pool": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "プール"
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "共同住宅"
+        },
+        "dormitory": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "寄宿舎"
+        },
+        "boarding": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "下宿"
+        },
+        "factory": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "工場"
+        },
+        "warehouse": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "倉庫"
+        },
+        "parking": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "駐車場"
+        },
+        "hangar": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "格納庫"
+        },
+        "garage": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "修理工場"
+        },
+        "gasStation": {
+          "minArea": 500,
+          "note": "ガソリンスタンド"
+        },
+        "dangerousGoods": {
+          "minArea": 500,
+          "note": "危険物施設"
+        },
+        "temple": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "寺社"
+        },
+        "station": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "駅舎"
+        },
+        "airport": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "空港"
+        }
+      }
+    },
+    "saitama_city": {
+      "name": "さいたま市",
+      "authority": "さいたま市建設局建築部建築総務課",
+      "type": "designated_city",
+      "parentPrefecture": "saitama",
+      "note": "さいたま市は政令指定都市のため、独自の特定建築物基準を適用します。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "劇場・映画館・演芸場"
+        },
+        "assembly": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公会堂・集会場"
+        },
+        "exhibition": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "展示場"
+        },
+        "casino": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "遊技場"
+        },
+        "cabaret": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "キャバレー等"
+        },
+        "bar": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "バー・スナック"
+        },
+        "karaoke": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "カラオケボックス"
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "ホテル・旅館"
+        },
+        "ryokan": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "簡易宿所"
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "飲食店"
+        },
+        "cafe": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "喫茶店"
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "minSpecificArea": 100,
+          "note": "3階以上100㎡超"
+        },
+        "retail": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "物販店舗"
+        },
+        "market": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "卸売市場"
+        },
+        "publicBath": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公衆浴場"
+        },
+        "beautyShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "理容・美容"
+        },
+        "laundromat": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "コインランドリー"
+        },
+        "serviceShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "サービス店舗"
+        },
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "事務所"
+        },
+        "governmentMain": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "官公署本庁舎"
+        },
+        "governmentBranch": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "支庁・支所"
+        },
+        "bank": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "銀行"
+        },
+        "hospitalLarge": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20,
+          "note": "病院"
+        },
+        "clinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "診療所"
+        },
+        "dentalClinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "歯科"
+        },
+        "nursingHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "特養"
+        },
+        "careHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "有料老人ホーム"
+        },
+        "dayService": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "デイサービス"
+        },
+        "groupHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "グループホーム"
+        },
+        "disabilityFacility": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "障害者施設"
+        },
+        "childWelfare": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "児童福祉施設"
+        },
+        "maternityHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "助産所"
+        },
+        "schoolElementary": {
+          "minArea": 8000,
+          "note": "小中学校"
+        },
+        "schoolHigh": {
+          "minArea": 8000,
+          "note": "高校"
+        },
+        "university": {
+          "minArea": 8000,
+          "note": "大学"
+        },
+        "specialSchool": {
+          "minArea": 8000,
+          "note": "特別支援学校"
+        },
+        "kindergarten": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "幼稚園"
+        },
+        "nursery": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "保育所"
+        },
+        "cram": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "学習塾"
+        },
+        "library": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "図書館"
+        },
+        "museum": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "博物館"
+        },
+        "gym": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "体育館"
+        },
+        "pool": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "プール"
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "共同住宅"
+        },
+        "dormitory": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "寄宿舎"
+        },
+        "boarding": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "下宿"
+        },
+        "factory": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "工場"
+        },
+        "warehouse": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "倉庫"
+        },
+        "parking": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "駐車場"
+        },
+        "hangar": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "格納庫"
+        },
+        "garage": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "修理工場"
+        },
+        "gasStation": {
+          "minArea": 500,
+          "note": "ガソリンスタンド"
+        },
+        "dangerousGoods": {
+          "minArea": 500,
+          "note": "危険物施設"
+        },
+        "temple": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "寺社"
+        },
+        "station": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "駅舎"
+        },
+        "airport": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "空港"
+        }
+      }
+    },
+    "fukuoka_city": {
+      "name": "福岡市",
+      "authority": "福岡市住宅都市局建築指導部建築審査課",
+      "type": "designated_city",
+      "parentPrefecture": "fukuoka",
+      "note": "福岡市は政令指定都市のため、独自の特定建築物基準を適用します。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "劇場"
+        },
+        "assembly": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公会堂・集会場"
+        },
+        "exhibition": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "展示場"
+        },
+        "casino": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "遊技場"
+        },
+        "cabaret": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "キャバレー等"
+        },
+        "bar": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "バー・スナック"
+        },
+        "karaoke": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "カラオケボックス"
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "ホテル・旅館"
+        },
+        "ryokan": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "簡易宿所"
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "飲食店"
+        },
+        "cafe": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "喫茶店"
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "店舗"
+        },
+        "retail": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "物販店舗"
+        },
+        "market": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "卸売市場"
+        },
+        "publicBath": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公衆浴場"
+        },
+        "beautyShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "理容・美容"
+        },
+        "laundromat": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "コインランドリー"
+        },
+        "serviceShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "サービス店舗"
+        },
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "事務所"
+        },
+        "governmentMain": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "官公署本庁舎"
+        },
+        "governmentBranch": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "支庁・支所"
+        },
+        "bank": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "銀行"
+        },
+        "hospitalLarge": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20,
+          "note": "病院"
+        },
+        "clinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "診療所"
+        },
+        "dentalClinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "歯科"
+        },
+        "nursingHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "特養"
+        },
+        "careHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "有料老人ホーム"
+        },
+        "dayService": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "デイサービス"
+        },
+        "groupHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "グループホーム"
+        },
+        "disabilityFacility": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "障害者施設"
+        },
+        "childWelfare": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "児童福祉施設"
+        },
+        "maternityHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "助産所"
+        },
+        "schoolElementary": {
+          "minArea": 8000,
+          "note": "小中学校"
+        },
+        "schoolHigh": {
+          "minArea": 8000,
+          "note": "高校"
+        },
+        "university": {
+          "minArea": 8000,
+          "note": "大学"
+        },
+        "specialSchool": {
+          "minArea": 8000,
+          "note": "特別支援学校"
+        },
+        "kindergarten": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "幼稚園"
+        },
+        "nursery": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "保育所"
+        },
+        "cram": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "学習塾"
+        },
+        "library": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "図書館"
+        },
+        "museum": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "博物館"
+        },
+        "gym": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "体育館"
+        },
+        "pool": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "プール"
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "共同住宅"
+        },
+        "dormitory": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "寄宿舎"
+        },
+        "boarding": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "下宿"
+        },
+        "factory": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "工場"
+        },
+        "warehouse": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "倉庫"
+        },
+        "parking": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "駐車場"
+        },
+        "hangar": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "格納庫"
+        },
+        "garage": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "修理工場"
+        },
+        "gasStation": {
+          "minArea": 500,
+          "note": "ガソリンスタンド"
+        },
+        "dangerousGoods": {
+          "minArea": 500,
+          "note": "危険物施設"
+        },
+        "temple": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "寺社"
+        },
+        "station": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "駅舎"
+        },
+        "airport": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "空港"
+        }
+      }
+    },
+    "kumamoto_city": {
+      "name": "熊本市",
+      "authority": "熊本市都市建設局建築指導課",
+      "type": "designated_city",
+      "parentPrefecture": "kumamoto",
+      "note": "熊本市は政令指定都市のため、独自の特定建築物基準を適用します。",
+      "lastUpdated": "2024-04-01",
+      "specificBuilding": {
+        "theater": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "劇場・映画館・演芸場"
+        },
+        "assembly": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公会堂・集会場"
+        },
+        "exhibition": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "展示場"
+        },
+        "casino": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "遊技場"
+        },
+        "cabaret": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "キャバレー等"
+        },
+        "bar": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "バー・スナック"
+        },
+        "karaoke": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "カラオケボックス"
+        },
+        "hotel": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "ホテル・旅館"
+        },
+        "ryokan": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "簡易宿所"
+        },
+        "restaurant": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "飲食店"
+        },
+        "cafe": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "喫茶店"
+        },
+        "commercial": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "店舗"
+        },
+        "retail": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "物販店舗"
+        },
+        "market": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "卸売市場"
+        },
+        "publicBath": {
+          "minFloors": 3,
+          "minArea": 200,
+          "note": "公衆浴場"
+        },
+        "beautyShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "理容・美容"
+        },
+        "laundromat": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "コインランドリー"
+        },
+        "serviceShop": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "サービス店舗"
+        },
+        "office": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "事務所"
+        },
+        "governmentMain": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "官公署本庁舎"
+        },
+        "governmentBranch": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "支庁・支所"
+        },
+        "bank": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "銀行"
+        },
+        "hospitalLarge": {
+          "minFloors": 3,
+          "minArea": 300,
+          "orBeds": 20,
+          "note": "病院"
+        },
+        "clinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "診療所"
+        },
+        "dentalClinic": {
+          "minFloors": 3,
+          "minArea": 300,
+          "note": "歯科"
+        },
+        "nursingHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "特養"
+        },
+        "careHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "有料老人ホーム"
+        },
+        "dayService": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "デイサービス"
+        },
+        "groupHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "グループホーム"
+        },
+        "disabilityFacility": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "障害者施設"
+        },
+        "childWelfare": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "児童福祉施設"
+        },
+        "maternityHome": {
+          "minFloors": 2,
+          "minArea": 300,
+          "note": "助産所"
+        },
+        "schoolElementary": {
+          "minArea": 8000,
+          "note": "小中学校"
+        },
+        "schoolHigh": {
+          "minArea": 8000,
+          "note": "高校"
+        },
+        "university": {
+          "minArea": 8000,
+          "note": "大学"
+        },
+        "specialSchool": {
+          "minArea": 8000,
+          "note": "特別支援学校"
+        },
+        "kindergarten": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "幼稚園"
+        },
+        "nursery": {
+          "minFloors": 2,
+          "minArea": 500,
+          "note": "保育所"
+        },
+        "cram": {
+          "minFloors": 3,
+          "minArea": 500,
+          "note": "学習塾"
+        },
+        "library": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "図書館"
+        },
+        "museum": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "博物館"
+        },
+        "gym": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "体育館"
+        },
+        "pool": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "プール"
+        },
+        "apartment": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "共同住宅"
+        },
+        "dormitory": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "寄宿舎"
+        },
+        "boarding": {
+          "minFloors": 5,
+          "minArea": 1000,
+          "note": "下宿"
+        },
+        "factory": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "工場"
+        },
+        "warehouse": {
+          "minFloors": 5,
+          "minArea": 2000,
+          "note": "倉庫"
+        },
+        "parking": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "駐車場"
+        },
+        "hangar": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "格納庫"
+        },
+        "garage": {
+          "minFloors": 3,
+          "minArea": 1000,
+          "note": "修理工場"
+        },
+        "gasStation": {
+          "minArea": 500,
+          "note": "ガソリンスタンド"
+        },
+        "dangerousGoods": {
+          "minArea": 500,
+          "note": "危険物施設"
+        },
+        "temple": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "寺社"
+        },
+        "station": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "駅舎"
+        },
+        "airport": {
+          "minFloors": 3,
+          "minArea": 2000,
+          "note": "空港"
+        }
+      }
+    },
+    "kumamoto": {
+      "name": "熊本県",
+      "authority": "熊本県（熊本市は独自基準）",
+      "note": "熊本県の基準を適用。熊本市内の建物は熊本市の基準が適用されます（本システム対応済み）。",
+      "lastUpdated": "2024-04-01",
+      "designatedCities": [
+        "熊本市"
+      ],
       "specificBuilding": {
         "theater": {
           "minFloors": 3,
